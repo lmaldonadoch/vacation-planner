@@ -27,6 +27,18 @@ const userReducer = (state = initialState, action) => {
         name: payload.user.name,
         appointments: payload.appointments,
       };
+    case 'DESTROYING_SESSION':
+      return {
+        ...state,
+        isFetching: true,
+      };
+    case 'SESSION_DESTROYED':
+      return initialState;
+    case 'ERROR_DESTROYING_SESSION':
+      return {
+        ...state,
+        isFetching: false,
+      };
     default:
       return state;
   }
