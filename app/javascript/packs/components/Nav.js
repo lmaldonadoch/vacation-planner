@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { userLogin, userLogout } from '../actions/UserActions';
+import { userLoggedIn, userLogout } from '../actions/UserActions';
 import { useDispatch, useSelector } from 'react-redux';
 
 const Nav = () => {
@@ -8,12 +8,14 @@ const Nav = () => {
   const userState = useSelector((state) => state.user);
 
   useEffect(() => {
-    dispatch(userLogin());
-  }, []);
+    dispatch(userLoggedIn());
+  }, [userState.loggedIn]);
 
   const logout = () => {
     dispatch(userLogout());
   };
+
+  console.log(userState);
 
   if (userState.loggedIn) {
     return (
@@ -25,7 +27,9 @@ const Nav = () => {
           <Link to="/schedule-vacations" key={'schedule'}>
             <li>Schedule Vacations</li>
           </Link>
-          <li onClick={logout}>Log Out</li>
+          <li onClick={logout} key={userState.loggedIn}>
+            Log Out
+          </li>
         </ul>
       </nav>
     );
@@ -39,7 +43,7 @@ const Nav = () => {
         <Link to="/login" key={'login'}>
           <li>Log In</li>
         </Link>
-        <Link to="/registration" key={'registration'}>
+        <Link to="/registration" key={userState.loggedIn}>
           <li>Create an Account!</li>
         </Link>
       </ul>

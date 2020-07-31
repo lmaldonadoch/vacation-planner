@@ -1,4 +1,4 @@
-export const userLogin = () => async (dispatch) => {
+export const userLoggedIn = () => async (dispatch) => {
   try {
     dispatch({
       type: 'FETCHING_USER',
