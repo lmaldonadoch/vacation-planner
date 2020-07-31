@@ -3,11 +3,23 @@ import axios from 'axios';
 const updateUser = () => async (dispatch) => {
   try {
     dispatch({
-      type: 'FETCH_USER',
+      type: 'FETCHING_USER',
     });
 
-    const response = await axios
-      .get('/api/v1/logged_in')
-      .then(console.log(response));
+    const response = await fetch('/api/v1/logged_in');
+
+    const info = await response.json();
+
+    await dispatch({
+      type: 'RECEIVED_USER',
+      payload: info,
+    });
+  } catch (error) {
+    dispatch({
+      type: 'ERROR_FETCHING_USER',
+      payload: error,
+    });
   }
 };
+
+export default updateUser;

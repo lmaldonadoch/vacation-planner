@@ -4,6 +4,7 @@ import Register from '../pages/Register';
 import Home from '../pages/Home';
 import Dates from '../pages/Dates';
 import { Switch, Route } from 'react-router-dom';
+import Nav from './Nav';
 
 const App = () => {
   return (
