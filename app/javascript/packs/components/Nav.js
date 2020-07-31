@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const Nav = () => {
+  useEffect = (() => {}, []);
   return (
     <nav>
       <ul>
@@ -12,11 +13,7 @@ const Nav = () => {
         <Link to="/details">
           <li id="details">Stock Details</li>
         </Link>
-        <li>
-          <div className="form-container-nav">
-            <StocksForm />
-          </div>
-        </li>
+        <li></li>
       </ul>
     </nav>
   );
