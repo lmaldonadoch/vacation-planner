@@ -16,3 +16,37 @@ span {
   padding: 0;
   list-style: none;
 }
+
+body,
+.wrapper,
+.App {
+  min-height: 100vh;
+}
+
+nav {
+  color: #525252;
+  font-weight: 900;
+  a,
+  a:hover {
+    color: #525252;
+    font-weight: 900;
+  }
+
+  a:hover {
+    text-decoration: none !important;
+  }
+
+  li {
+    padding: 20px 0 20px 20px;
+    cursor: pointer;
+  }
+
+  .active {
+    background: rgb(151, 191, 15);
+    color: white;
+  }
+
+  .social-container {
+    font-size: 25px;
+  }
+}

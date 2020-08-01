@@ -18,6 +18,9 @@ const store = createStore(
   composeWithDevTools(applyMiddleware(thunk))
 );
 
+let div = document.createElement('div');
+div.classList.add('wrapper');
+
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
     <React.StrictMode>
@@ -27,6 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
         </Router>
       </Provider>
     </React.StrictMode>,
-    document.body.appendChild(document.createElement('div'))
+    document.body.appendChild(div)
   );
 });

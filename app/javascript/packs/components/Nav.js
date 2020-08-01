@@ -15,25 +15,42 @@ const Nav = () => {
     dispatch(userLogout());
   };
 
+  const clickHandler = (e) => {
+    let li = document.getElementById('nav-links').children;
+    [...li].forEach((li) => {
+      li.classList.remove('active');
+    });
+    e.target.classList.add('active');
+  };
+
   console.log(userState);
 
   if (userState.loggedIn) {
     return (
-      <nav className="col-12 col-md-2 d-flex flex-column justify-content-center">
+      <nav className="col-12 col-md-3 d-flex flex-column justify-content-center">
         <div className="logo" />
-        <ul>
-          <Link to="/" key={'destinations'}>
-            <li>Destinations</li>
+        <ul id="nav-links">
+          <Link
+            to="/"
+            key={'destinations'}
+            onClick={clickHandler}
+            className="active"
+          >
+            <li id="home">Destinations</li>
           </Link>
-          <Link to="/schedule-vacations" key={'schedule'}>
-            <li>Schedule Vacations</li>
+          <Link
+            to="/schedule-vacations"
+            key={'schedule'}
+            onClick={clickHandler}
+          >
+            <li id="dates">Schedule Vacations</li>
           </Link>
           <li onClick={logout} key={userState.loggedIn}>
             Log Out
           </li>
         </ul>
 
-        <div className="social_container">
+        <div className="social-container w-100 d-flex justify-content-between">
           <a href="https://twitter.com/LuisAngelMCh" target="_blank">
             <i className="fab fa-twitter"></i>
           </a>
@@ -51,18 +68,34 @@ const Nav = () => {
     );
   }
   return (
-    <nav>
-      <ul>
-        <Link to="/" key={'destinations'}>
-          <li>Destinations</li>
+    <nav className="col-12 col-md-3 d-flex flex-column justify-content-center">
+      <div className="logo" />
+      <ul id="nav-links">
+        <Link to="/" key={'destinations'} onClick={clickHandler}>
+          <li id="home">Destinations</li>
         </Link>
-        <Link to="/login" key={'login'}>
-          <li>Log In</li>
+        <Link to="/login" key={'login'} onClick={clickHandler}>
+          <li id="login">Log In</li>
         </Link>
-        <Link to="/register" key={userState.loggedIn}>
-          <li>Create an Account!</li>
+        <Link to="/register" key={userState.loggedIn} onClick={clickHandler}>
+          <li id="register">Create an Account!</li>
         </Link>
       </ul>
+
+      <div className="social-container w-100 d-flex justify-content-between">
+        <a href="https://twitter.com/LuisAngelMCh" target="_blank">
+          <i className="fab fa-twitter"></i>
+        </a>
+        <a href="https://github.com/lmaldonadoch" target="_blank">
+          <i className="fab fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/lmaldonadoch/" target="_blank">
+          <i className="fab fa-linkedin-in"></i>
+        </a>
+        <a href="mailto: lmaldonadoch@gmail.com">
+          <i className="fas fa-envelope"></i>
+        </a>
+      </div>
     </nav>
   );
 };

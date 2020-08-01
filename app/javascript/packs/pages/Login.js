@@ -22,7 +22,7 @@ const Login = () => {
   }, [userState.loggedIn]);
 
   return (
-    <div className="col-12 col-md-10">
+    <div className="col-12 col-md-9">
       <form onSubmit={login}>
         <input type="email" placeholder="Enter your email" />
         <input type="password" placeholder="password" />
