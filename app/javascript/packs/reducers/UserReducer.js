@@ -1,5 +1,5 @@
 const initialState = {
-  name: null,
+  user: {},
   appointments: [{}],
   isFetching: false,
   loggedIn: false,
@@ -20,13 +20,15 @@ const userReducer = (state = initialState, action) => {
         isFetching: false,
       };
     case 'RECEIVED_USER':
+      console.log(payload, 'reducer');
       return {
         ...state,
         isFetching: false,
-        loggedIn: true,
-        name: payload.user.name,
+        loggedIn: payload.logged_in,
+        user: payload.user,
         appointments: payload.appointments,
       };
+
     case 'DESTROYING_SESSION':
       return {
         ...state,
@@ -35,6 +37,25 @@ const userReducer = (state = initialState, action) => {
     case 'SESSION_DESTROYED':
       return initialState;
     case 'ERROR_DESTROYING_SESSION':
+      return {
+        ...state,
+        isFetching: false,
+      };
+
+    case 'LOGGING_IN_USER':
+      return {
+        ...state,
+        isFetching: true,
+      };
+    case 'USER_LOGGED_IN':
+      return {
+        ...state,
+        isFetching: false,
+        loggedIn: true,
+        user: payload.user,
+        appointments: payload.appointments,
+      };
+    case 'ERROR_SIGNING_USER':
       return {
         ...state,
         isFetching: false,

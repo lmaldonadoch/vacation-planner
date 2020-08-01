@@ -1,19 +1,28 @@
-import React from 'react';
-import axios from 'axios';
+import React, { useEffect } from 'react';
+import { userLogin } from '../actions/UserActions';
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 const Login = () => {
+  const dispatch = useDispatch();
+  const userState = useSelector((state) => state.user);
+  const history = useHistory();
+
   const login = (e) => {
     e.preventDefault();
-
-    axios
-      .post('/api/v1/sessions', {
-        user: {
-          email: e.target[0].value,
-          password: e.target[1].value,
-        },
-      })
-      .then((response) => console.log(response.data));
+    const user = {
+      email: e.target[0].value,
+      password: e.target[1].value,
+    };
+    console.log(user);
+    dispatch(userLogin(user));
   };
+
+  console.log(userState);
+
+  useEffect(() => {
+    if (userState.loggedIn) history.push('/');
+  }, [userState.loggedIn]);
 
   return (
     <div>

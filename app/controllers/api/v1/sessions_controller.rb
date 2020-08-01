@@ -6,6 +6,7 @@ module API
       skip_before_action :verify_authenticity_token
       include CurrentUserConcern
       def create
+        p params
         user = User.find_by(email: params['user']['email'])
                   .try(:authenticate, params['user']['password'])
         if user
