@@ -26,10 +26,12 @@ body,
 nav {
   color: #525252;
   font-weight: 900;
+  font-size: 20px;
   a,
   a:hover {
     color: #525252;
     font-weight: 900;
+    font-size: 20px;
   }
 
   a:hover {
@@ -46,7 +48,37 @@ nav {
     color: white;
   }
 
-  .social-container {
-    font-size: 25px;
+  .social_container {
+    display: flex;
+    width: 90%;
+    max-width: 500px;
+    font-size: 1.5rem;
+    justify-content: space-between;
+  }
+
+  .social_container i {
+    transition-property: all;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+  }
+
+  .social_container .fa-facebook-square:hover {
+    color: #3b5998;
+  }
+
+  .social_container .fa-twitter:hover {
+    color: #00acee;
+  }
+
+  .social_container .fa-linkedin-in:hover {
+    color: #0e76a8;
+  }
+
+  .social_container .fa-github:hover {
+    color: #30e6cd;
+  }
+
+  .social_container .fa-envelope:hover {
+    color: #d44638;
   }
 }

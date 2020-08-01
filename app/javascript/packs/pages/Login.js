@@ -23,7 +23,10 @@ const Login = () => {
 
   return (
     <div className="col-12 col-md-9">
-      <form onSubmit={login}>
+      <form
+        onSubmit={login}
+        className="d-flex flex-column justify-content-center align-content-center h-100"
+      >
         <input type="email" placeholder="Enter your email" />
         <input type="password" placeholder="password" />
         <button tye="submit">Log in</button>

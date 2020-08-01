@@ -1,11 +1,30 @@
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useLayoutEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { userLoggedIn, userLogout } from '../actions/UserActions';
 import { useDispatch, useSelector } from 'react-redux';
 
 const Nav = () => {
   const dispatch = useDispatch();
   const userState = useSelector((state) => state.user);
+  const location = useLocation();
+
+  useLayoutEffect(() => {
+    console.log(document.getElementById('home'));
+    let elem =
+      location.pathname === '/'
+        ? document.getElementById('home')
+        : document.getElementById(`${location.pathname.replace(/^\/+/g, '')}`);
+    let li = document.getElementById('nav-links').children;
+    [...li].forEach((elem) => {
+      let targetChild = [...elem.children][0];
+      if (targetChild) {
+        targetChild.classList.remove('active');
+      } else {
+        elem.children.classList.remove('active');
+      }
+    });
+    elem.classList.add('active');
+  }, []);
 
   useEffect(() => {
     dispatch(userLoggedIn());
@@ -17,8 +36,13 @@ const Nav = () => {
 
   const clickHandler = (e) => {
     let li = document.getElementById('nav-links').children;
-    [...li].forEach((li) => {
-      li.classList.remove('active');
+    [...li].forEach((elem) => {
+      let targetChild = [...elem.children][0];
+      if (targetChild) {
+        targetChild.classList.remove('active');
+      } else {
+        elem.children.classList.remove('active');
+      }
     });
     e.target.classList.add('active');
   };
@@ -30,12 +54,7 @@ const Nav = () => {
       <nav className="col-12 col-md-3 d-flex flex-column justify-content-center">
         <div className="logo" />
         <ul id="nav-links">
-          <Link
-            to="/"
-            key={'destinations'}
-            onClick={clickHandler}
-            className="active"
-          >
+          <Link to="/" key={'destinations'} onClick={clickHandler}>
             <li id="home">Destinations</li>
           </Link>
           <Link
