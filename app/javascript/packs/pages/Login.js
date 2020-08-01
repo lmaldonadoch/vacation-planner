@@ -14,7 +14,6 @@ const Login = () => {
       email: e.target[0].value,
       password: e.target[1].value,
     };
-    console.log(user);
     dispatch(userLogin(user));
   };
 
@@ -23,7 +22,7 @@ const Login = () => {
   }, [userState.loggedIn]);
 
   return (
-    <div>
+    <div className="col-12 col-md-10">
       <form onSubmit={login}>
         <input type="email" placeholder="Enter your email" />
         <input type="password" placeholder="password" />

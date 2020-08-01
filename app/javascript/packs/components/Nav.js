@@ -19,7 +19,8 @@ const Nav = () => {
 
   if (userState.loggedIn) {
     return (
-      <nav>
+      <nav className="col-12 col-md-2 d-flex flex-column justify-content-center">
+        <div className="logo" />
         <ul>
           <Link to="/" key={'destinations'}>
             <li>Destinations</li>
@@ -31,6 +32,21 @@ const Nav = () => {
             Log Out
           </li>
         </ul>
+
+        <div className="social_container">
+          <a href="https://twitter.com/LuisAngelMCh" target="_blank">
+            <i className="fab fa-twitter"></i>
+          </a>
+          <a href="https://github.com/lmaldonadoch" target="_blank">
+            <i className="fab fa-github"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/lmaldonadoch/" target="_blank">
+            <i className="fab fa-linkedin-in"></i>
+          </a>
+          <a href="mailto: lmaldonadoch@gmail.com">
+            <i className="fas fa-envelope"></i>
+          </a>
+        </div>
       </nav>
     );
   }
