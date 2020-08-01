@@ -74,3 +74,36 @@ export const userLogin = (user) => async (dispatch) => {
     });
   }
 };
+
+export const userRegistration = (user) => async (dispatch) => {
+  try {
+    dispatch({
+      type: 'REGISTERING_USER',
+    });
+
+    axios
+      .post(
+        '/api/v1/registrations',
+        {
+          user: {
+            name: user.name,
+            email: user.email,
+            password: user.password,
+            password_confirmation: user.password_confirmation,
+          },
+        },
+        { withCredentials: true }
+      )
+      .then((response) =>
+        dispatch({
+          type: 'USER_REGISTERED',
+          payload: response,
+        })
+      );
+  } catch (error) {
+    dispatch({
+      type: 'REGISTRATION_ERROR',
+      payload: error,
+    });
+  }
+};

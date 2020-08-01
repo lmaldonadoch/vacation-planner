@@ -1,26 +1,32 @@
-import React from 'react';
-import axios from 'axios';
+import React, { useEffect } from 'react';
+import { userRegistration } from '../actions/UserActions';
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 const Register = () => {
+  const dispatch = useDispatch();
+  const userState = useSelector((state) => state.user);
+  const history = useHistory();
+
   const signup = (e) => {
     e.preventDefault();
-
-    console.log(e.target[0].value, e.target[1].value, e.target[2].value);
-
-    axios
-      .post('/api/v1/registrations', {
-        user: {
-          email: e.target[0].value,
-          password: e.target[1].value,
-          password_confirmation: e.target[2].value,
-        },
-      })
-      .then((response) => console.log(response.data));
+    const user = {
+      name: e.target[0].value,
+      email: e.target[1].value,
+      password: e.target[2].value,
+      password_confirmation: e.target[3].value,
+    };
+    dispatch(userRegistration(user));
   };
+
+  useEffect(() => {
+    if (userState.loggedIn) history.push('/');
+  }, [userState.loggedIn]);
 
   return (
     <div>
       <form onSubmit={signup}>
+        <input type="text" placeholder="Enter your name" />
         <input type="email" placeholder="Enter your email" />
         <input type="password" placeholder="password" />
         <input type="password" placeholder="Confirm your Password" />

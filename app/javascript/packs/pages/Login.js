@@ -18,8 +18,6 @@ const Login = () => {
     dispatch(userLogin(user));
   };
 
-  console.log(userState);
-
   useEffect(() => {
     if (userState.loggedIn) history.push('/');
   }, [userState.loggedIn]);

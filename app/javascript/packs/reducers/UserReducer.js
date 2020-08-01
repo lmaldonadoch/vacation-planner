@@ -60,6 +60,26 @@ const userReducer = (state = initialState, action) => {
         ...state,
         isFetching: false,
       };
+
+    case 'REGISTERING_USER':
+      return {
+        ...state,
+        isFetching: true,
+      };
+    case 'USER_REGISTERED':
+      return {
+        ...state,
+        isFetching: false,
+        loggedIn: true,
+        user: payload.user,
+        appointments: payload.appointments,
+      };
+    case 'REGISTRATION_ERROR':
+      return {
+        ...state,
+        isFetching: false,
+      };
+
     default:
       return state;
   }

@@ -43,7 +43,7 @@ const Nav = () => {
         <Link to="/login" key={'login'}>
           <li>Log In</li>
         </Link>
-        <Link to="/registration" key={userState.loggedIn}>
+        <Link to="/register" key={userState.loggedIn}>
           <li>Create an Account!</li>
         </Link>
       </ul>
