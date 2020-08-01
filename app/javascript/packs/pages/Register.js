@@ -25,10 +25,13 @@ const Register = () => {
 
   return (
     <div className="col-12 col-md-9">
-      <form onSubmit={signup}>
+      <form
+        onSubmit={signup}
+        className="d-flex flex-column justify-content-center align-items-center h-100"
+      >
         <input type="text" placeholder="Enter your name" />
         <input type="email" placeholder="Enter your email" />
-        <input type="password" placeholder="password" />
+        <input type="password" placeholder="Enter your password" />
         <input type="password" placeholder="Confirm your Password" />
         <button tye="submit">Sign up!</button>
       </form>

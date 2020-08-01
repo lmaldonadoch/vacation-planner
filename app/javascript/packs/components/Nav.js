@@ -9,7 +9,6 @@ const Nav = () => {
   const location = useLocation();
 
   useLayoutEffect(() => {
-    console.log(document.getElementById('home'));
     let elem =
       location.pathname === '/'
         ? document.getElementById('home')
@@ -47,8 +46,6 @@ const Nav = () => {
     e.target.classList.add('active');
   };
 
-  console.log(userState);
-
   if (userState.loggedIn) {
     return (
       <nav className="col-12 col-md-3 d-flex flex-column justify-content-center">
@@ -69,7 +66,7 @@ const Nav = () => {
           </li>
         </ul>
 
-        <div className="social-container w-100 d-flex justify-content-between">
+        <div className="social_container d-flex justify-content-between">
           <a href="https://twitter.com/LuisAngelMCh" target="_blank">
             <i className="fab fa-twitter"></i>
           </a>
@@ -101,7 +98,7 @@ const Nav = () => {
         </Link>
       </ul>
 
-      <div className="social-container w-100 d-flex justify-content-between">
+      <div className="social_container d-flex justify-content-between">
         <a href="https://twitter.com/LuisAngelMCh" target="_blank">
           <i className="fab fa-twitter"></i>
         </a>

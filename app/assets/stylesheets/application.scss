@@ -15,12 +15,14 @@ span {
   margin: 0;
   padding: 0;
   list-style: none;
+  box-sizing: border-box;
 }
 
 body,
 .wrapper,
 .App {
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 nav {
@@ -48,12 +50,19 @@ nav {
     color: white;
   }
 
+  ul {
+    margin-top: auto;
+  }
+
   .social_container {
-    display: flex;
     width: 90%;
     max-width: 500px;
-    font-size: 1.5rem;
-    justify-content: space-between;
+    padding: 0 15px;
+    margin-top: auto;
+
+    a {
+      font-size: 1.8rem;
+    }
   }
 
   .social_container i {
@@ -80,5 +89,29 @@ nav {
 
   .social_container .fa-envelope:hover {
     color: #d44638;
+  }
+}
+
+form {
+  input {
+    width: 100%;
+    max-width: 500px;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 0 10px 10px;
+    border-bottom: #d8d8d8 solid 1px;
+    margin-bottom: 30px;
+  }
+
+  button {
+    border: none;
+    border-radius: 4px;
+    background: rgb(151, 191, 15);
+    color: white;
+    width: 100%;
+    max-width: 200px;
+    padding: 15px;
+    font-size: 20px;
+    font-weight: 700;
   }
 }
