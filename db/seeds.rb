@@ -40,7 +40,7 @@ il1 = Image.create(destination_id: 4, image_url: 'https://images.unsplash.com/ph
 il2 = Image.create(destination_id: 4, image_url: 'https://images.unsplash.com/photo-1523312628884-26d58dc8bd61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1034&q=80')
 il3 = Image.create(destination_id: 4, image_url: 'https://images.unsplash.com/photo-1500185760083-2355a0bc5d35?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80')
 
-iq1 = Image.create(destination_id: 5, image_url: 'https://images.unsplash.com/photo-1595660192522-27fb00defb4f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=966&q=80')
+iq1 = Image.create(destination_id: 5, image_url: 'https://images.unsplash.com/photo-1590125664444-1d0404bc8adc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80')
 iq2 = Image.create(destination_id: 5, image_url: 'https://images.unsplash.com/photo-1548402539-86c2670fe771?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80')
 iq3 = Image.create(destination_id: 5, image_url: 'https://images.unsplash.com/photo-1512442827816-8e5a088619c9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1019&q=80')
 

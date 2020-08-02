@@ -117,10 +117,43 @@ form {
 }
 
 .Home {
+  .title {
+    text-align: center;
+
+    h1 {
+      font-weight: 900;
+      color: black;
+    }
+
+    p {
+      font-size: 14px;
+      color: black;
+      opacity: 0.6;
+    }
+  }
   .carousel {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: fit-content;
+    height: 70%;
+    width: 70%;
+    cursor: pointer;
+  }
+
+  ol {
+    display: none;
+  }
+
+  .modal-dialog {
+    min-height: 80%;
+    min-width: 80%;
+    max-width: 1000px !important;
+  }
+}
+
+@media (min-width: 576px) {
+  .modal-dialog {
+    max-width: 1000px !important;
+    margin: 1.75rem auto;
   }
 }
