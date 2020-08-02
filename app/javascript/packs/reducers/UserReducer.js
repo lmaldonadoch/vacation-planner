@@ -20,7 +20,6 @@ const userReducer = (state = initialState, action) => {
         isFetching: false,
       };
     case 'RECEIVED_USER':
-      console.log(payload, 'reducer');
       return {
         ...state,
         isFetching: false,

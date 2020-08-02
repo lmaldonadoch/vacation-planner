@@ -19,11 +19,15 @@ const Nav = () => {
       if (targetChild) {
         targetChild.classList.remove('active');
       } else {
-        elem.children.classList.remove('active');
+        elem.classList.remove('active');
       }
     });
-    elem.classList.add('active');
-  }, []);
+    if (elem) {
+      elem.classList.add('active');
+    } else {
+      document.getElementById('home').classList.add('active');
+    }
+  }, [userState.loggedIn]);
 
   useEffect(() => {
     dispatch(userLoggedIn());
