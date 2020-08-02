@@ -24,8 +24,6 @@ d5 = Destination.create(place: 'Queretaro, Mexico')
 
 d6 = Destination.create(place: 'Santa Maria, RS, Brazil')
 
-d7 = Destination.create(place: 'Port Harcourt, Nigeria')
-
 it1 = Image.create(destination_id: 1, image_url: 'https://images.unsplash.com/photo-1568548655200-b91935d692ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80')
 it2 = Image.create(destination_id: 1, image_url: 'https://images.unsplash.com/photo-1568548740292-7ccd65802bb6?ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80')
 it3 = Image.create(destination_id: 1, image_url: 'https://images.unsplash.com/photo-1561464380-c01da572f971?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=830&q=80')
@@ -41,3 +39,11 @@ ic3 = Image.create(destination_id: 3, image_url: 'https://images.unsplash.com/ph
 il1 = Image.create(destination_id: 4, image_url: 'https://images.unsplash.com/photo-1595660192522-27fb00defb4f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=966&q=80')
 il2 = Image.create(destination_id: 4, image_url: 'https://images.unsplash.com/photo-1523312628884-26d58dc8bd61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1034&q=80')
 il3 = Image.create(destination_id: 4, image_url: 'https://images.unsplash.com/photo-1500185760083-2355a0bc5d35?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80')
+
+iq1 = Image.create(destination_id: 5, image_url: 'https://images.unsplash.com/photo-1595660192522-27fb00defb4f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=966&q=80')
+iq2 = Image.create(destination_id: 5, image_url: 'https://images.unsplash.com/photo-1548402539-86c2670fe771?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80')
+iq3 = Image.create(destination_id: 5, image_url: 'https://images.unsplash.com/photo-1512442827816-8e5a088619c9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1019&q=80')
+
+is1 = Image.create(destination_id: 6, image_url: 'https://www.sistur.rs.gov.br/multimidia_promocional/MD_2014021411083211._santuario_de_schoenstatt.jpg')
+is2 = Image.create(destination_id: 6, image_url: 'https://www.sistur.rs.gov.br/multimidia_promocional/MD_20140214104108rg.jpg')
+is3 = Image.create(destination_id: 6, image_url: 'https://www.sistur.rs.gov.br/multimidia_promocional/GD_201401140953452_santa_maria..jpg')
