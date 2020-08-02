@@ -17,7 +17,6 @@ const destinationsReducer = (state = initialState, action) => {
         isFetching: true,
       };
     case 'RECEIVED_DESTINATIONS':
-      console.log(payload);
       return {
         ...state,
       };

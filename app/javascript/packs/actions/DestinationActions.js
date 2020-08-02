@@ -6,11 +6,13 @@ export const destinationsLoad = () => async (dispatch) => {
       type: 'FETCHING_DESTINATIONS',
     });
 
-    axios.get('/api/v1/destinations').then((response) =>
-      dispatch({
-        type: 'RECEIVED_DESTINATIONS',
-        payload: response,
-      })
+    axios.get('/api/v1/destinations').then(
+      (response) => console.log(response)
+      // .then((response) =>
+      //   dispatch({
+      //     type: 'RECEIVED_DESTINATIONS',
+      //     payload: response,
+      //   })
     );
   } catch (error) {
     dispatch({

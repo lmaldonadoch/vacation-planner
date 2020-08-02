@@ -3,8 +3,8 @@ module API
     class Api::V1::DestinationsController < ApplicationController
       before_action :validate_admin, only: %i[create, update, destroy]
       def index
-        destinations = Destination.all
-
+        destinations = Destination.all.includes(:images)
+        
         render json: DestinationSerializer.new(destinations, options).serialized_json
       end
 
@@ -16,7 +16,7 @@ module API
 
       def create
         destination = Destination.create!(
-          name: params['destination']['name'],
+          place: params['destination']['place'],
         )
 
         if destination
@@ -30,7 +30,7 @@ module API
         destination = Destination.find(params[:id])
 
         if destination.update(
-          name: params['destination']['name'],
+          place: params['destination']['place'],
         )
           render json: DestinationSerializer.new(destination, options).serialized_json
         else
@@ -57,7 +57,7 @@ module API
       end
 
       def destination_params
-        params.require(:destination).permit(:name)
+        params.require(:destination).permit(:place)
       end
 
       def options
