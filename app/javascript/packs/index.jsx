@@ -23,13 +23,11 @@ div.classList.add('wrapper');
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
-    <React.StrictMode>
-      <Provider store={store}>
-        <Router>
-          <Route path="/" component={App} />
-        </Router>
-      </Provider>
-    </React.StrictMode>,
+    <Provider store={store}>
+      <Router>
+        <Route path="/" component={App} />
+      </Router>
+    </Provider>,
     document.body.appendChild(div)
   );
 });
