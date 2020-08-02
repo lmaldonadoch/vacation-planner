@@ -6,19 +6,25 @@ import ImagesContainer from '../containers/ImagesContainer';
 
 const Home = () => {
   const destinationsState = useSelector((state) => state.destinations);
-  let imagesToDisplay = [];
+  const dispatch = useDispatch();
+  const [imagesToDisplay, setImagesToDisplay] = useState([]);
 
   useEffect(() => {
     dispatch(destinationsLoad());
   }, []);
 
   useEffect(() => {
-    if (!destinationsState.isFetching) {
+    if (
+      !destinationsState.isFetching &&
+      destinationsState.destinations.length > 1
+    ) {
       destinationsState.destinations.forEach((destination) => {
-        imagesToDisplay.push({
-          place: destination.attributes.place,
-          image: destination.images[0].attributes.image_url,
-        });
+        setImagesToDisplay((prevState) =>
+          prevState.concat({
+            place: destination.attributes.place,
+            image: destination.images[0].attributes.image_url,
+          })
+        );
       });
     }
   }, [destinationsState.isFetching]);

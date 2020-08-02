@@ -151,6 +151,14 @@ form {
   }
 }
 
+.Image {
+  .image-div {
+    min-width: 100%;
+    height: 200px;
+    background-size: contain;
+  }
+}
+
 @media (min-width: 576px) {
   .modal-dialog {
     max-width: 1000px !important;
