@@ -44,7 +44,7 @@ const Nav = () => {
       if (targetChild) {
         targetChild.classList.remove('active');
       } else {
-        elem.children.classList.remove('active');
+        elem.classList.remove('active');
       }
     });
     e.target.classList.add('active');
@@ -58,11 +58,7 @@ const Nav = () => {
           <Link to="/" key={'destinations'} onClick={clickHandler}>
             <li id="home">Destinations</li>
           </Link>
-          <Link
-            to="/schedule-vacations"
-            key={'schedule'}
-            onClick={clickHandler}
-          >
+          <Link to="/dates" key={'schedule'} onClick={clickHandler}>
             <li id="dates">Schedule Vacations</li>
           </Link>
           <li onClick={logout} key={userState.loggedIn}>
