@@ -115,3 +115,12 @@ form {
     font-weight: 700;
   }
 }
+
+.Home {
+  .carousel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: fit-content;
+  }
+}

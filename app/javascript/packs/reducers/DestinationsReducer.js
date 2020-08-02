@@ -1,6 +1,6 @@
 const initialState = {
   isFetching: false,
-  destination: [{}],
+  destinations: [{}],
 };
 
 const destinationsReducer = (state = initialState, action) => {
