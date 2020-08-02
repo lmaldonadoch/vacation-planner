@@ -32,9 +32,9 @@ ip1 = Image.create(destination_id: 2, city: 'Cusco (Machu Picchu', image_url: 'h
 ip2 = Image.create(destination_id: 2, city: 'Cusco (Seven Colors Mountain)', image_url: 'https://images.unsplash.com/photo-1545330785-15356daae141?ixlib=rb-1.2.1&auto=format&fit=crop&w=854&q=80')
 ip3 = Image.create(destination_id: 2, city: 'Lima', image_url: 'https://images.unsplash.com/photo-1531968455001-5c5272a41129?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1381&q=80')
 
-ic1 = Image.create(destination_id: 3, city: 'Montreal', image_url: 'https://images.unsplash.com/photo-1558567612-559ce068ba31?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80')
-ic2 = Image.create(destination_id: 3, city: 'London', image_url: 'https://images.unsplash.com/photo-1595660192522-27fb00defb4f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=966&q=80')
-ic3 = Image.create(destination_id: 3, city: 'Québec City', image_url: 'https://images.unsplash.com/photo-1558486517-1025f6d30fc3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80')
+ic1 = Image.create(destination_id: 3, city: 'Québec City', image_url: 'https://images.unsplash.com/photo-1558486517-1025f6d30fc3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80')
+ic2 = Image.create(destination_id: 3, city: 'Montreal', image_url: 'https://images.unsplash.com/photo-1558567612-559ce068ba31?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80')
+ic3 = Image.create(destination_id: 3, city: 'London', image_url: 'https://images.unsplash.com/photo-1595660192522-27fb00defb4f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=966&q=80')
 
 ib1 = Image.create(destination_id: 4, city: 'Rio de Janeiro', image_url: 'https://images.unsplash.com/photo-1483729558449-99ef09a8c325?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80')
 ib2 = Image.create(destination_id: 4, city: 'São Paulo', image_url: 'https://images.unsplash.com/photo-1524171877404-222de92181e7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80')
