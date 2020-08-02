@@ -9,7 +9,7 @@ module API
       end
 
       def show
-        destination = Destination.find(params[:id])
+        destination = Destination.find(params[:id]).includes(:images)
 
         render json: DestinationSerializer.new(destination, options).serialized_json
       end
@@ -61,7 +61,7 @@ module API
       end
 
       def options
-        @options ||= {incude: %i[images] }
+        @options = {include: [:images]}
       end
     end
   end

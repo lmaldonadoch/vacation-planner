@@ -1,10 +1,6 @@
 const initialState = {
-  destinations: [
-    {
-      isFetching: false,
-      destination: [{}],
-    },
-  ],
+  isFetching: false,
+  destination: [{}],
 };
 
 const destinationsReducer = (state = initialState, action) => {
@@ -19,6 +15,8 @@ const destinationsReducer = (state = initialState, action) => {
     case 'RECEIVED_DESTINATIONS':
       return {
         ...state,
+        isFetching: false,
+        destinations: payload,
       };
     default:
       return state;

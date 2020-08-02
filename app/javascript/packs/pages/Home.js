@@ -15,6 +15,8 @@ const Home = () => {
     dispatch(destinationsLoad());
   }, []);
 
+  console.log(destinationsState);
+
   return (
     <div className="col-12 col-md-9">
       <button onClick={handleShow}>Show modal</button>
