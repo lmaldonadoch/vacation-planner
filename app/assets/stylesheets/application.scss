@@ -173,6 +173,11 @@ form {
 }
 
 .Image {
+  a {
+    width: 100%;
+    color: black;
+    text-align: center;
+  }
   .image-div {
     min-width: 100%;
     height: 200px;

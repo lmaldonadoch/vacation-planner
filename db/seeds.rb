@@ -12,17 +12,17 @@ u2 = User.create(name: 'Luis', email: 'luis@vacationplanner.com', password: '123
 
 u3 = User.create(name: 'Carlos', email: 'carlos@vacationplanner.com', password: '123456', password_confirmation: '123456')
 
-d1 = Destination.create(place: 'Mexico')
+d1 = Destination.create(place: 'Mexico', country_description: "Mexico is well known for its turquoise beaches, colonial cities, and warm people. Don't miss the chance to visit this beautiful country.")
 
-d2 = Destination.create(place: 'Peru')
+d2 = Destination.create(place: 'Peru', country_description: "Peru's gastronomy is considered one of the best in the world. Along with Machu Picchu, Lake Titicaca, and the mysterious Nazca Lines, it is a no brainer for a trip full of adventures and good memories.")
 
-d3 = Destination.create(place: 'Canada')
+d3 = Destination.create(place: 'Canada', country_description: "Canada has been in the top 3 countries for life quality for many years. It is also home to more than half the lakes in the world, and its national parks are bigger than most countries. Prepare to be amazed!")
 
-d4 = Destination.create(place: 'Brazil')
+d4 = Destination.create(place: 'Brazil', country_description: "Home of the world's largest festival in Rio de Janeiro, famous beaches like Ipanema and Copacabana, and probably the most beautiful women in the world. Brazil will take your breath away in every way.")
 
-d5 = Destination.create(place: 'Greece')
+d5 = Destination.create(place: 'Greece', country_description: "Greece is a collection of islands, including the gorgeous Santorini and Mykonos. Walk beside the Parthenon and let Athens take you for a ride to the past.")
 
-d6 = Destination.create(place: 'Japan')
+d6 = Destination.create(place: 'Japan', country_description: "Visit the bamboo forests, the ancient temples, the bullet train, or the busy cities. Any tiny bit of Japan guarantees an unforgettable memory. ")
 
 im1 = Image.create(destination_id: 1, city: 'Tulum', image_url: 'https://images.unsplash.com/photo-1568548655200-b91935d692ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80')
 im2 = Image.create(destination_id: 1, city: 'Bacalar', image_url: 'https://images.unsplash.com/photo-1576246837439-dd0d7f347759?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=949&q=80')
