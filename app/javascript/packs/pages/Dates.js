@@ -10,81 +10,86 @@ const Dates = ({ match }) => {
   const datesState = useSelector((state) => state.dates);
   const dispatch = useDispatch();
 
-  let cities = [];
-
   useEffect(() => {
-    destinationsState.destinations.forEach((destination) => {
-      cities.push(destination.attributes.place);
-    });
-
     dispatch(
       dateSetup({
         country: country,
-        city: city,
-        start_date: '',
-        end_date: '',
+        cities: [{ attributes: { city: city } }],
       })
     );
   }, []);
 
-  const setDestination = () => {
-    const destination = destinationsState.destinations.filter(
-      (destination) => destination.attributes.place === datesState.date.country
-    );
+  const setDestination = (e) => {
+    e.preventDefault();
 
-    const image = destination[0].images.filter(
-      (selectedCity) => selectedCity.attributes.city === datesState.date.city
-    );
-
-    const image_id = image[0].id;
-
-    const destination_id = destination[0].id;
-
-    const user_id = userState.user.id;
+    console.log(e);
   };
 
-  const updateCity = (e) => {
+  console.log(datesState);
+
+  const updateCountry = (e) => {
     const { value } = e.target;
-    console.log(value);
+
+    dispatch(
+      dateSetup({
+        country: value,
+        cities: destinationsState.destinations.filter(
+          (destination) => destination.attributes.place === value
+        )[0].images,
+        start_date: datesState.date.start_date,
+        end_date: datesState.date.end_date,
+      })
+    );
   };
-
-  useEffect(() => {
-    setDestination;
-  }, [datesState.date.country, datesState.date.city]);
-
-  console.log();
 
   return (
     <div className="Dates col-12 col-md-10">
-      <form>
+      <form className="schedule-date" onSubmit={(e) => setDestination(e)}>
         <div className="form-group">
           <label>Your name</label>
           <input type="text" value={userState.user.name} readOnly />
         </div>
 
-        <select name="country" onChange={updateCity} className="country">
-          {destinationsState.destinations.map((destination) => {
-            if (destination.attributes.place === datesState.date.country) {
-              return (
-                <option
-                  value={destination.attributes.place}
-                  key={destination.attributes.place}
-                  selected="selected"
-                >
-                  {destination.attributes.place}
-                </option>
-              );
-            }
-            return (
-              <option
-                value={destination.attributes.place}
-                key={destination.attributes.place}
-              >
-                {destination.attributes.place}
-              </option>
-            );
-          })}
+        <select
+          name="country"
+          onChange={updateCountry}
+          className="country"
+          value={datesState.date.country}
+        >
+          {destinationsState.destinations.map((destination) => (
+            <option
+              value={destination.attributes.place}
+              key={destination.attributes.place}
+            >
+              {destination.attributes.place}
+            </option>
+          ))}
         </select>
+
+        <select name="city" className="country">
+          {datesState.date.cities.map((destination) => (
+            <option
+              value={destination.attributes.city}
+              key={destination.attributes.city}
+            >
+              {destination.attributes.city}
+            </option>
+          ))}
+        </select>
+
+        <div className="form-group">
+          <label>When are you going?</label>
+          <input type="date" />
+        </div>
+
+        <div className="form-group">
+          <label>When are you coming back?</label>
+          <input type="date" />
+        </div>
+
+        <button className="schedule-button" type="submit">
+          <i className="fas fa-calendar-alt"></i> Schedule Your Trip!
+        </button>
       </form>
     </div>
   );

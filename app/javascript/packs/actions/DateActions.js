@@ -28,7 +28,7 @@ export const dateCreate = (date) => async (dispatch) => {
   }
 };
 
-export const dateSetup = (date) => {
+export const dateSetup = (date) => (dispatch) => {
   dispatch({
     type: 'DATE_SETUP',
     payload: date,

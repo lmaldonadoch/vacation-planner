@@ -3,9 +3,7 @@ const initialState = {
   user: {},
   date: {
     country: '',
-    city: '',
-    start_date: '',
-    end_date: '',
+    cities: [],
   },
 };
 
@@ -33,7 +31,7 @@ const dateReducer = (state = initialState, action) => {
     case 'DATE_SETUP':
       return {
         ...state,
-        date: payload.date,
+        date: payload,
       };
 
     default:
