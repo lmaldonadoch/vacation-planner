@@ -1,6 +1,12 @@
 const initialState = {
   isFetching: false,
   user: {},
+  date: {
+    country: '',
+    city: '',
+    start_date: '',
+    end_date: '',
+  },
 };
 
 const dateReducer = (state = initialState, action) => {
@@ -22,6 +28,17 @@ const dateReducer = (state = initialState, action) => {
       return {
         ...state,
         isFetching: false,
+      };
+
+    case 'DATE_SETUP':
+      return {
+        ...state,
+        date: payload.date,
+      };
+
+    default:
+      return {
+        ...state,
       };
   }
 };
