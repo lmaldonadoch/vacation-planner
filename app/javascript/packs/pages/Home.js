@@ -22,6 +22,7 @@ const Home = () => {
         setImagesToDisplay((prevState) =>
           prevState.concat({
             place: destination.attributes.place,
+            description: destination.attributes.country_description,
             image: destination.images[0].attributes.image_url,
           })
         );

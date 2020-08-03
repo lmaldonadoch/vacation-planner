@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import Carousel from 'react-bootstrap/Carousel';
-import Spinner from 'react-bootstrap/Spinner';
 import { useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import Spinner from 'react-bootstrap/Spinner';
 
 const Details = ({ match }) => {
   // Carousel
@@ -12,7 +13,6 @@ const Details = ({ match }) => {
   };
 
   const location = useLocation();
-  console.log(match, location.pathname.replace(/^\/+/g, ''));
   const country = match
     ? match.params.country
     : location.pathname.replace(/^\/+/g, '');
@@ -33,8 +33,13 @@ const Details = ({ match }) => {
   console.log(imagesToDisplay);
   if (imagesToDisplay[0]) {
     return (
-      <div className="Details col-12 col-md-9 d-flex flex-column align-items-center justify-content-center">
-        <Carousel activeIndex={index} onSelect={handleSelect}>
+      <div className="Details col-12 col-md-9 d-flex flex-column flex-md-row align-items-center">
+        <Link to="/">
+          <button className="left">
+            <i className="fas fa-caret-left"></i>
+          </button>
+        </Link>
+        <Carousel activeIndex={index} onSelect={handleSelect} interval={20000}>
           {imagesToDisplay[0].images.map((image) => (
             <Carousel.Item key={image.id}>
               <img
@@ -46,6 +51,10 @@ const Details = ({ match }) => {
             </Carousel.Item>
           ))}
         </Carousel>
+        <div className="right-banner">
+          <h2>{imagesToDisplay[0].images[index].attributes.city}</h2>
+          <p>{imagesToDisplay[0].images[index].attributes.city_description}</p>
+        </div>
       </div>
     );
   }

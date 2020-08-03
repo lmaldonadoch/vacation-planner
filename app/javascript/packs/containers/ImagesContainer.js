@@ -51,7 +51,12 @@ const imagesContainer = (props) => {
       </div>
       <div className="row w-100">
         {images.slice(page * size, (page + 1) * size).map((image) => (
-          <Image place={image.place} image={image.image} key={image.image} />
+          <Image
+            place={image.place}
+            image={image.image}
+            description={image.description}
+            key={image.image}
+          />
         ))}
       </div>
       <div className="col-1 d-flex justify-content-lg-between">

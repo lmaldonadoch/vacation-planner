@@ -29,6 +29,9 @@ nav {
   color: #525252;
   font-weight: 900;
   font-size: 20px;
+  border-right: #f1f1f1 solid 2px;
+  padding-right: 0 !important;
+
   a,
   a:hover {
     color: #525252;
@@ -117,8 +120,14 @@ form {
 }
 
 .Home {
+  a:hover {
+    text-decoration: none;
+    color: black;
+  }
+
   .title {
     text-align: center;
+    margin-bottom: 50px;
 
     h1 {
       font-weight: 900;
@@ -131,27 +140,10 @@ form {
       opacity: 0.6;
     }
   }
-  .carousel {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 70%;
-    width: 70%;
-    cursor: pointer;
-  }
-
-  ol {
-    display: none;
-  }
-
-  .modal-dialog {
-    min-height: 80%;
-    min-width: 80%;
-    max-width: 1000px !important;
-  }
 }
 
-.ImagesContainer {
+.ImagesContainer,
+.Details {
   button {
     height: 30px;
     width: 100px;
@@ -178,10 +170,32 @@ form {
     color: black;
     text-align: center;
   }
+
   .image-div {
     min-width: 100%;
     height: 200px;
     background-size: contain;
+  }
+
+  .destination-info {
+    margin-top: 30px;
+
+    .destination-name-wrapper {
+      padding-bottom: 15px;
+      border-bottom: #d8d8d8 solid 1px;
+      width: 50%;
+      margin: 0 auto 20px;
+    }
+
+    h5 {
+      font-weight: 700;
+    }
+
+    p {
+      color: black;
+      opacity: 0.6;
+      font-size: 14px;
+    }
   }
 }
 
