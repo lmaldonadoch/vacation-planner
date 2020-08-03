@@ -21,8 +21,33 @@ const Dates = ({ match }) => {
 
   const setDestination = (e) => {
     e.preventDefault();
+    e.persist();
 
-    console.log(e);
+    const formValues = [...e.target].map((input) => input.value);
+
+    console.log(formValues);
+
+    const destination = destinationsState.destinations.filter(
+      (destination) => destination.attributes.place === formValues[1]
+    );
+
+    const image = destination[0].images.filter(
+      (selectedCity) => selectedCity.attributes.city === formValues[2]
+    );
+
+    const imageId = image[0].id;
+    const destinationId = destination[0].id;
+    const userId = userState.user.id;
+
+    dispatch(
+      dateCreate({
+        user_id: userId,
+        destination_id: destinationId,
+        image_id: imageId,
+        start_date: formValues[3],
+        end_date: formValues[4],
+      })
+    );
   };
 
   console.log(datesState);
@@ -44,7 +69,7 @@ const Dates = ({ match }) => {
 
   return (
     <div className="Dates col-12 col-md-10">
-      <form className="schedule-date" onSubmit={(e) => setDestination(e)}>
+      <form className="schedule-date" onSubmit={setDestination}>
         <div className="form-group">
           <label>Your name</label>
           <input type="text" value={userState.user.name} readOnly />

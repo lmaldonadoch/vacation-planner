@@ -1,12 +1,14 @@
 module API
   module V1
     class Api::V1::VacationDatesController < ApplicationController
-
+      skip_before_action :verify_authenticity_token
       def create
+        p params
         date = VacationDate.create!(date_params)
 
         if date
-          render json: { status: 'created', user: @current_user }
+          vacation_dates = @current_user.vacation_dates
+          render json: { status: 'created', user: @current_user, vacation_dates: vacation_dates }
         else
           render json: { status: 500 }
         end
