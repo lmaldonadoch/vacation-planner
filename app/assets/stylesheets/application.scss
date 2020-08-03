@@ -199,6 +199,52 @@ form {
   }
 }
 
+.Details {
+  position: relative;
+
+  .back-link {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+
+    button {
+      width: 70px;
+      height: 50px;
+    }
+  }
+
+  .carousel {
+    min-width: 60%;
+    margin: 0 20px;
+    max-height: 50vh;
+
+    img {
+      max-height: 60vh;
+    }
+  }
+
+  .right-banner {
+    padding-right: 20px;
+    align-self: flex-start;
+    max-width: 400px;
+
+    h2 {
+      font-weight: 700;
+    }
+
+    p {
+      color: black;
+      opacity: 0.6;
+      font-size: 14px;
+    }
+
+    button {
+      width: 100%;
+      border-radius: 15px;
+    }
+  }
+}
+
 @media (min-width: 576px) {
   .modal-dialog {
     max-width: 1000px !important;

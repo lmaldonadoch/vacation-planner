@@ -34,7 +34,7 @@ const Details = ({ match }) => {
   if (imagesToDisplay[0]) {
     return (
       <div className="Details col-12 col-md-9 d-flex flex-column flex-md-row align-items-center">
-        <Link to="/">
+        <Link to="/" className="back-link">
           <button className="left">
             <i className="fas fa-caret-left"></i>
           </button>
@@ -54,6 +54,11 @@ const Details = ({ match }) => {
         <div className="right-banner">
           <h2>{imagesToDisplay[0].images[index].attributes.city}</h2>
           <p>{imagesToDisplay[0].images[index].attributes.city_description}</p>
+          <Link to="/dates" className="dates-button">
+            <button className="schedule-button">
+              <i className="fas fa-calendar-alt"></i> Schedule Your Trip!
+            </button>
+          </Link>
         </div>
       </div>
     );
