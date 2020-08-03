@@ -36,7 +36,7 @@ const Details = ({ match }) => {
       <div className="Details col-12 col-md-10 d-flex flex-column justify-content-center">
         <div className="title">
           <h2>{country}</h2>
-          <p>Select the city you are traveling to</p>
+          <p>Select your destination and start scheduling!</p>
         </div>
         <div className="d-flex flex-column flex-md-row align-items-center">
           <Link to="/" className="back-link">
@@ -67,7 +67,10 @@ const Details = ({ match }) => {
                 {imagesToDisplay[0].images[index].attributes.city_description}
               </p>
             </div>
-            <Link to="/dates" className="dates-button">
+            <Link
+              to={`/dates/${country}/${imagesToDisplay[0].images[index].attributes.city}`}
+              className="dates-button"
+            >
               <button className="schedule-button">
                 <i className="fas fa-calendar-alt"></i> Schedule Your Trip!
               </button>
