@@ -1,31 +1,33 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 const Dates = ({ match }) => {
-  const { country, city } = match.params;
+  let { country, city } = match.params;
 
   const userState = useSelector((state) => state.user);
   const destinationsState = useSelector((state) => state.destinations);
 
-  console.log(destinationsState, userState);
+  const setDestination = () => {
+    const destination = destinationsState.destinations.filter(
+      (destination) => destination.attributes.place === country
+    );
 
-  const destination = destinationsState.destinations.filter(
-    (destination) => destination.attributes.place === country
-  );
+    const image = destination[0].images.filter(
+      (selectedCity) => selectedCity.attributes.city === city
+    );
 
-  console.log(destination, destination[0]);
+    const image_id = image[0].id;
 
-  const image = destination[0].images.filter(
-    (selectedCity) => selectedCity.attributes.city === city
-  );
+    const destination_id = destination[0].id;
 
-  const image_id = image[0].id;
+    const user_id = userState.user.id;
+  };
 
-  const destination_id = destination[0].id;
+  useEffect(() => {
+    setDestination;
+  }, [country, city]);
 
-  const user_id = userState.user.id;
-
-  console.log(destination_id, user_id, image_id);
+  console.log();
 
   return (
     <div className="Dates col-12 col-md-10">
