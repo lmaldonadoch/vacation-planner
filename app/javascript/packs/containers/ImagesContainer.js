@@ -11,7 +11,7 @@ const imagesContainer = (props) => {
   };
 
   const incrementPage = () => {
-    if (page * size < images.length - 1)
+    if ((page + 1) * size < images.length - 1)
       setPage((prevState) => (prevState += 1));
   };
 
@@ -24,29 +24,38 @@ const imagesContainer = (props) => {
   }
 
   useLayoutEffect(() => {
+    console.log((page + 1) * size, images.length - 1);
     if (page === 0) {
       document.getElementById('decrement').disabled = true;
-    } else if (page === images.length - 1) {
+      document.getElementById('decrement').classList.add('disabled');
+      document.getElementById('increment').classList.remove('disabled');
+    } else if ((page + 1) * size >= images.length - 1) {
       document.getElementById('increment').disabled = true;
+      document.getElementById('increment').classList.add('disabled');
+      document.getElementById('decrement').classList.remove('disabled');
     } else {
       document.getElementById('decrement').disabled = false;
       document.getElementById('increment').disabled = false;
+
+      document.getElementById('decrement').classList.remove('disabled');
+      document.getElementById('increment').classList.remove('disabled');
     }
   }, [page]);
 
   return (
-    <div className="row w-100">
-      <div className="col d-flex justify-content-lg-between">
-        <button onClick={decrementPage} id="decrement">
+    <div className="ImagesContainer d-flex align-items-center w-100">
+      <div className="col-1 d-flex justify-content-lg-between">
+        <button onClick={decrementPage} id="decrement" className="left">
           <i className="fas fa-caret-left"></i>
         </button>
       </div>
-      {images.slice(page * size, (page + 1) * size).map((image) => (
-        <Image place={image.place} image={image.image} key={image.image} />
-      ))}
-
-      <div className="col d-flex justify-content-lg-between">
-        <button onClick={incrementPage} id="increment">
+      <div className="row w-100">
+        {images.slice(page * size, (page + 1) * size).map((image) => (
+          <Image place={image.place} image={image.image} key={image.image} />
+        ))}
+      </div>
+      <div className="col-1 d-flex justify-content-lg-between">
+        <button onClick={incrementPage} id="increment" className="right">
           <i className="fas fa-caret-right"></i>
         </button>
       </div>

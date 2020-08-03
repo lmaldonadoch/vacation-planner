@@ -151,6 +151,27 @@ form {
   }
 }
 
+.ImagesContainer {
+  button {
+    height: 30px;
+    width: 100px;
+    color: white;
+    background: rgb(151, 191, 15);
+    border: none;
+  }
+  .left {
+    border-radius: 0 50% 50% 0;
+  }
+
+  .right {
+    border-radius: 50% 0 0 50%;
+  }
+
+  .disabled {
+    opacity: 0.5;
+  }
+}
+
 .Image {
   .image-div {
     min-width: 100%;

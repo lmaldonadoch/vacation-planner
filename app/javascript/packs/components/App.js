@@ -5,6 +5,7 @@ import Home from '../pages/Home';
 import Dates from '../pages/Dates';
 import { Switch, Route } from 'react-router-dom';
 import Nav from './Nav';
+import Details from '../pages/Details';
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
         <Route path="/login" exact component={Login} />
         <Route path="/register" exact component={Register} />
         <Route path="/dates" exact component={Dates} />
+        <Route path="/:country" component={Details} />
       </Switch>
     </div>
   );
