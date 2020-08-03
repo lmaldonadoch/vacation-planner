@@ -33,32 +33,46 @@ const Details = ({ match }) => {
   console.log(imagesToDisplay);
   if (imagesToDisplay[0]) {
     return (
-      <div className="Details col-12 col-md-9 d-flex flex-column flex-md-row align-items-center">
-        <Link to="/" className="back-link">
-          <button className="left">
-            <i className="fas fa-caret-left"></i>
-          </button>
-        </Link>
-        <Carousel activeIndex={index} onSelect={handleSelect} interval={20000}>
-          {imagesToDisplay[0].images.map((image) => (
-            <Carousel.Item key={image.id}>
-              <img
-                className="d-block w-100"
-                src={image.attributes.image_url}
-                alt={image.id}
-              />
-              <Carousel.Caption></Carousel.Caption>
-            </Carousel.Item>
-          ))}
-        </Carousel>
-        <div className="right-banner">
-          <h2>{imagesToDisplay[0].images[index].attributes.city}</h2>
-          <p>{imagesToDisplay[0].images[index].attributes.city_description}</p>
-          <Link to="/dates" className="dates-button">
-            <button className="schedule-button">
-              <i className="fas fa-calendar-alt"></i> Schedule Your Trip!
+      <div className="Details col-12 col-md-10 d-flex flex-column justify-content-center">
+        <div className="title">
+          <h2>{country}</h2>
+          <p>Select the city you are traveling to</p>
+        </div>
+        <div className="d-flex flex-column flex-md-row align-items-center">
+          <Link to="/" className="back-link">
+            <button className="left">
+              <i className="fas fa-caret-left"></i>
             </button>
           </Link>
+          <Carousel
+            activeIndex={index}
+            onSelect={handleSelect}
+            interval={20000}
+          >
+            {imagesToDisplay[0].images.map((image) => (
+              <Carousel.Item key={image.id}>
+                <img
+                  className="d-block w-100"
+                  src={image.attributes.image_url}
+                  alt={image.id}
+                />
+                <Carousel.Caption></Carousel.Caption>
+              </Carousel.Item>
+            ))}
+          </Carousel>
+          <div className="right-banner d-flex flex-column h-100 justify-content-center">
+            <div className="city-info">
+              <h2>{imagesToDisplay[0].images[index].attributes.city}</h2>
+              <p>
+                {imagesToDisplay[0].images[index].attributes.city_description}
+              </p>
+            </div>
+            <Link to="/dates" className="dates-button">
+              <button className="schedule-button">
+                <i className="fas fa-calendar-alt"></i> Schedule Your Trip!
+              </button>
+            </Link>
+          </div>
         </div>
       </div>
     );

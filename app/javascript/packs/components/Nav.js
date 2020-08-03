@@ -52,7 +52,7 @@ const Nav = () => {
 
   if (userState.loggedIn) {
     return (
-      <nav className="col-12 col-md-3 d-flex flex-column justify-content-center">
+      <nav className="col-12 col-md-2 d-flex flex-column justify-content-center">
         <div className="logo" />
         <ul id="nav-links">
           <Link to="/" key={'destinations'} onClick={clickHandler}>
@@ -84,7 +84,7 @@ const Nav = () => {
     );
   }
   return (
-    <nav className="col-12 col-md-3 d-flex flex-column justify-content-center">
+    <nav className="col-12 col-md-2 d-flex flex-column justify-content-center">
       <div className="logo" />
       <ul id="nav-links">
         <Link to="/" key={'destinations'} onClick={clickHandler}>

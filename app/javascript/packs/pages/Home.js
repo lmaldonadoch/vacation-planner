@@ -34,7 +34,7 @@ const Home = () => {
 
   if (imagesToDisplay.length > 1) {
     return (
-      <div className="Home col-12 col-md-9 d-flex flex-column align-items-center justify-content-center">
+      <div className="Home col-12 col-md-10 d-flex flex-column align-items-center justify-content-center">
         <div className="title">
           <h1>Vacations Destinations</h1>
           <p>Choose your favorite place and start scheduling</p>
