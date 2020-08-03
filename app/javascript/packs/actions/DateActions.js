@@ -14,12 +14,13 @@ export const dateCreate = (date) => async (dispatch) => {
         },
         { withCredentials: true }
       )
-      .then((response) =>
+      .then((response) => {
+        console.log(response);
         dispatch({
           type: 'DATE_CREATED',
           payload: response,
-        })
-      );
+        });
+      });
   } catch (error) {
     dispatch({
       type: 'ERROR_SETTING_DATE',

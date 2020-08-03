@@ -1,6 +1,6 @@
 const initialState = {
   user: {},
-  appointments: [{}],
+  vacationDates: [{}],
   isFetching: false,
   loggedIn: false,
 };
@@ -25,7 +25,7 @@ const userReducer = (state = initialState, action) => {
         isFetching: false,
         loggedIn: payload.logged_in,
         user: payload.user,
-        appointments: payload.appointments,
+        vacationDates: payload.vacation_dates,
       };
 
     case 'DESTROYING_SESSION':
@@ -52,7 +52,7 @@ const userReducer = (state = initialState, action) => {
         isFetching: false,
         loggedIn: true,
         user: payload.user,
-        appointments: payload.appointments,
+        vacationDates: payload.vacation_dates,
       };
     case 'ERROR_SIGNING_USER':
       return {
@@ -71,7 +71,7 @@ const userReducer = (state = initialState, action) => {
         isFetching: false,
         loggedIn: true,
         user: payload.user,
-        appointments: payload.appointments,
+        vacationDates: payload.vacation_dates,
       };
     case 'REGISTRATION_ERROR':
       return {

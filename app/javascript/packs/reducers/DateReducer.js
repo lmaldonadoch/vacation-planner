@@ -1,10 +1,10 @@
 const initialState = {
   isFetching: false,
-  user: {},
   date: {
     country: '',
     cities: [],
   },
+  status: '',
 };
 
 const dateReducer = (state = initialState, action) => {
@@ -20,7 +20,7 @@ const dateReducer = (state = initialState, action) => {
       return {
         ...state,
         isFetching: false,
-        user: payload.user,
+        status: 'created',
       };
     case 'ERROR_SETTING_DATE':
       return {
