@@ -10,9 +10,9 @@ const Nav = () => {
 
   useLayoutEffect(() => {
     let elem =
-      location.pathname === '/'
+      location.pathname.split('/')[1] === ''
         ? document.getElementById('home')
-        : document.getElementById(`${location.pathname.replace(/^\/+/g, '')}`);
+        : document.getElementById(`${location.pathname.split('/')[1]}`);
     let li = document.getElementById('nav-links').children;
     [...li].forEach((elem) => {
       let targetChild = [...elem.children][0];
@@ -27,7 +27,7 @@ const Nav = () => {
     } else {
       document.getElementById('home').classList.add('active');
     }
-  }, [userState.loggedIn]);
+  }, [location.pathname]);
 
   console.log(userState);
 

@@ -1,6 +1,8 @@
 module API
   module V1
     class Api::V1::DestinationsController < ApplicationController
+      skip_before_action :verify_authenticity_token
+      include CurrentUserConcern
       before_action :validate_admin, only: %i[create, update, destroy]
       def index
         destinations = Destination.all.includes(:images)

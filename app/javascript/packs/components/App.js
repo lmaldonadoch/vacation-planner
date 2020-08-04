@@ -6,6 +6,7 @@ import Dates from '../pages/Dates';
 import { Switch, Route } from 'react-router-dom';
 import Nav from './Nav';
 import Details from '../pages/Details';
+import PrivateRoute from './PrivateRoute';
 
 const App = () => {
   return (
@@ -15,8 +16,8 @@ const App = () => {
         <Route path="/" exact component={Home} />
         <Route path="/login" exact component={Login} />
         <Route path="/register" exact component={Register} />
-        <Route path="/dates" exact component={Dates} />
-        <Route path="/dates/:country/:city" component={Dates} />
+        <PrivateRoute path="/dates" exact component={Dates} />
+        <PrivateRoute path="/dates/:country/:city" component={Dates} />
         <Route path="/:country" component={Details} />
       </Switch>
     </div>
