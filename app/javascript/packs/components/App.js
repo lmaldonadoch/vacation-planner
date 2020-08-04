@@ -7,6 +7,7 @@ import { Switch, Route } from 'react-router-dom';
 import Nav from './Nav';
 import Details from '../pages/Details';
 import PrivateRoute from './PrivateRoute';
+import AddDestination from '../pages/AddDestination';
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="/register" exact component={Register} />
         <PrivateRoute path="/dates" exact component={Dates} />
         <PrivateRoute path="/dates/:country/:city" component={Dates} />
+        <PrivateRoute path="/add-destination" component={AddDestination} />
         <Route path="/:country" component={Details} />
       </Switch>
     </div>

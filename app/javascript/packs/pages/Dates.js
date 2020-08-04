@@ -130,12 +130,12 @@ const Dates = ({ match }) => {
 
         <div className="form-group">
           <label>What is your departure date?</label>
-          <input type="date" />
+          <input type="date" required />
         </div>
 
         <div className="form-group">
           <label>What is your return date?</label>
-          <input type="date" />
+          <input type="date" required />
         </div>
 
         <button className="schedule-button" type="submit">

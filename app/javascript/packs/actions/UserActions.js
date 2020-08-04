@@ -61,12 +61,13 @@ export const userLogin = (user) => async (dispatch) => {
         },
         { withCredentials: true }
       )
-      .then((response) =>
+      .then((response) => {
+        console.log(response);
         dispatch({
           type: 'USER_LOGGED_IN',
           payload: response,
-        })
-      );
+        });
+      });
   } catch (error) {
     dispatch({
       type: 'ERROR_SIGNING_USER',

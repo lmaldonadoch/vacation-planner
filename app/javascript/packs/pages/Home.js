@@ -30,8 +30,6 @@ const Home = () => {
     }
   }, [destinationsState.isFetching]);
 
-  console.log(destinationsState);
-
   if (imagesToDisplay.length > 1) {
     return (
       <div className="Home col-12 col-md-10 d-flex flex-column align-items-center justify-content-center">
