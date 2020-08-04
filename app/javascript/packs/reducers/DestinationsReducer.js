@@ -52,7 +52,7 @@ const destinationsReducer = (state = initialState, action) => {
       return {
         ...state,
         isFetching: false,
-        destinations: payload,
+        destinations: [payload],
       };
     case 'ERROR_CREATING_COUNTRY':
       return {

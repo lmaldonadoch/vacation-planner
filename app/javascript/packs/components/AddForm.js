@@ -54,17 +54,16 @@ const AddForm = ({ form }) => {
   };
 
   useEffect(() => {
-    console.log(destinationsState.destinations);
-    console.log(destinationsState.destinations.id);
-    setCityForCountry((prevState) => ({
-      image_url: prevState.image_url,
-      destination_id: destinationsState.destinations.id,
-      city: prevState.city,
-      city_description: prevState.city_description,
-    }));
-    console.log(cityForCountry, 'after setCityForCountry with destinations.id');
-
-    dispatch(cityCreate(cityForCountry));
+    if (destinationsState.destinations.length === 1) {
+      dispatch(
+        cityCreate({
+          image_url: cityForCountry.image_url,
+          destination_id: destinationsState.destinations[0].id,
+          city: cityForCountry.city,
+          city_description: cityForCountry.city_description,
+        })
+      );
+    }
   }, [destinationsState.destinations]);
 
   useEffect(() => {
