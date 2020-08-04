@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { cityCreate } from '../actions/DestinationActions';
+import { cityCreate, destinationsLoad } from '../actions/DestinationActions';
 import { useHistory } from 'react-router-dom';
 
 const AddForm = ({ form }) => {

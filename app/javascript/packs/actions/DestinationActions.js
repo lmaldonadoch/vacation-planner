@@ -39,9 +39,9 @@ export const cityCreate = (city) => async (dispatch) => {
 
     axios
       .post(
-        '/api/v1/vacation_dates',
+        '/api/v1/images',
         {
-          city: city,
+          image: city,
         },
         { withCredentials: true }
       )
