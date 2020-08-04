@@ -32,7 +32,7 @@ module API
       end
 
       def image_params
-        params.require(:image).permit(:image_url, :destination_id)
+        params.require(:image).permit(:image_url, :destination_id, :city, :city_description)
       end
     end
   end

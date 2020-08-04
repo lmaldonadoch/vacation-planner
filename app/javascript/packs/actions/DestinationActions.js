@@ -28,3 +28,34 @@ export const destinationsLoad = () => async (dispatch) => {
     });
   }
 };
+
+export const cityCreate = (city) => async (dispatch) => {
+  try {
+    dispatch({
+      type: 'CREATING_CITY',
+    });
+
+    console.log(city, 'city value in actions');
+
+    axios
+      .post(
+        '/api/v1/vacation_dates',
+        {
+          city: city,
+        },
+        { withCredentials: true }
+      )
+      .then((response) => {
+        console.log(response, 'response from creating city');
+        dispatch({
+          type: 'CITY_CREATED',
+          payload: response.data,
+        });
+      });
+  } catch (error) {
+    dispatch({
+      type: 'ERROR_CREATING_CITY',
+      payload: error,
+    });
+  }
+};
