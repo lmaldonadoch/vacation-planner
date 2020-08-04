@@ -13,7 +13,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
           userState.loggedIn && userState.user.admin ? (
             <Component {...props} />
           ) : (
-            <Redirect to="/login" />
+            <Redirect to="/" />
           )
         }
       />

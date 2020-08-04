@@ -29,8 +29,6 @@ const Nav = () => {
     }
   }, [location.pathname]);
 
-  console.log(userState);
-
   useEffect(() => {
     dispatch(userLoggedIn());
   }, [userState.loggedIn]);

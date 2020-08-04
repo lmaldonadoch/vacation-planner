@@ -22,7 +22,7 @@ const Login = () => {
   }, [userState.loggedIn]);
 
   return (
-    <div className="col-12 col-md-10">
+    <div className="Login col-12 col-md-10">
       <form
         onSubmit={login}
         className="d-flex flex-column justify-content-center align-items-center h-100"

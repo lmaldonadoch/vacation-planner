@@ -29,7 +29,7 @@ module API
             vacation_dates: @current_user.vacation_dates,
           }
         else
-          render json: {logged_in: false}
+          render json: {logged_in: false, user: {}, vacation_dates: [{}]}
         end
       end
 
