@@ -41,7 +41,23 @@ const destinationsReducer = (state = initialState, action) => {
       return {
         isFetching: false,
         destinations: payload,
-        ERROR_CREATING_CITY,
+      };
+
+    case 'CREATING_COUNTRY':
+      return {
+        ...state,
+        isFetching: true,
+      };
+    case 'COUNTRY_CREATED':
+      return {
+        ...state,
+        isFetching: false,
+        destinations: payload,
+      };
+    case 'ERROR_CREATING_COUNTRY':
+      return {
+        isFetching: false,
+        destinations: payload,
       };
 
     default:

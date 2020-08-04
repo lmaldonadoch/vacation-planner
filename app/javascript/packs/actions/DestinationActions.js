@@ -35,8 +35,6 @@ export const cityCreate = (city) => async (dispatch) => {
       type: 'CREATING_CITY',
     });
 
-    console.log(city, 'city value in actions');
-
     axios
       .post(
         '/api/v1/images',
@@ -46,7 +44,6 @@ export const cityCreate = (city) => async (dispatch) => {
         { withCredentials: true }
       )
       .then((response) => {
-        console.log(response, 'response from creating city');
         dispatch({
           type: 'CITY_CREATED',
           payload: response.data,
@@ -55,6 +52,37 @@ export const cityCreate = (city) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: 'ERROR_CREATING_CITY',
+      payload: error,
+    });
+  }
+};
+
+export const countryCreate = (country) => async (dispatch) => {
+  try {
+    dispatch({
+      type: 'CREATING_COUNTRY',
+    });
+
+    console.log(country, 'country value in actions');
+
+    axios
+      .post(
+        '/api/v1/destinations',
+        {
+          destination: country,
+        },
+        { withCredentials: true }
+      )
+      .then((response) => {
+        console.log(response, 'response from creating country');
+        dispatch({
+          type: 'COUNTRY_CREATED',
+          payload: response.data.data,
+        });
+      });
+  } catch (error) {
+    dispatch({
+      type: 'ERROR_CREATING_COUNTRY',
       payload: error,
     });
   }

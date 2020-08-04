@@ -17,9 +17,7 @@ module API
       end
 
       def create
-        destination = Destination.create!(
-          place: params['destination']['place'],
-        )
+        destination = Destination.create!(destination_params)
 
         if destination
           render json: DestinationSerializer.new(destination).serialized_json
@@ -59,7 +57,7 @@ module API
       end
 
       def destination_params
-        params.require(:destination).permit(:place)
+        params.require(:destination).permit(:place, :country_description)
       end
 
       def options
