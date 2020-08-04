@@ -11,7 +11,7 @@ const imagesContainer = (props) => {
   };
 
   const incrementPage = () => {
-    if ((page + 1) * size < images.length - 1)
+    if ((page + 1) * size < images.length)
       setPage((prevState) => (prevState += 1));
   };
 
@@ -24,12 +24,12 @@ const imagesContainer = (props) => {
   }
 
   useLayoutEffect(() => {
-    console.log((page + 1) * size, images.length - 1);
+    console.log((page + 1) * size, images.length);
     if (page === 0) {
       document.getElementById('decrement').disabled = true;
       document.getElementById('decrement').classList.add('disabled');
       document.getElementById('increment').classList.remove('disabled');
-    } else if ((page + 1) * size >= images.length - 1) {
+    } else if ((page + 1) * size >= images.length) {
       document.getElementById('increment').disabled = true;
       document.getElementById('increment').classList.add('disabled');
       document.getElementById('decrement').classList.remove('disabled');
@@ -42,6 +42,8 @@ const imagesContainer = (props) => {
     }
   }, [page]);
 
+  console.log(`size is ${size}`, `page is ${page}`);
+
   return (
     <div className="ImagesContainer d-flex align-items-center w-100">
       <div className="col-1 d-flex justify-content-lg-between">
@@ -50,14 +52,16 @@ const imagesContainer = (props) => {
         </button>
       </div>
       <div className="row w-100">
-        {images.slice(page * size, (page + 1) * size).map((image) => (
-          <Image
-            place={image.place}
-            image={image.image}
-            description={image.description}
-            key={image.image}
-          />
-        ))}
+        {images
+          .slice(page * size, Math.min((page + 1) * size, images.length))
+          .map((image) => (
+            <Image
+              place={image.place}
+              image={image.image}
+              description={image.description}
+              key={image.image}
+            />
+          ))}
       </div>
       <div className="col-1 d-flex justify-content-lg-between">
         <button onClick={incrementPage} id="increment" className="right">

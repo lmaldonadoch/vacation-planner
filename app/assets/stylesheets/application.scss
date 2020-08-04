@@ -143,7 +143,8 @@ form {
 }
 
 .ImagesContainer,
-.Details {
+.Details,
+.AddDestination {
   button {
     height: 30px;
     width: 100px;
@@ -308,10 +309,32 @@ form {
   }
 }
 
-@media (min-width: 576px) {
-  .modal-dialog {
-    max-width: 1000px !important;
-    max-height: 700px !important;
-    margin: 1.75rem auto;
+.AddDestination {
+  form {
+    height: fit-content;
+
+    input {
+      width: 150%;
+    }
+
+    textarea {
+      border: #f1f1f1 1px solid;
+      border-radius: 7px;
+      width: 150%;
+      margin-bottom: 30px;
+      height: 150px;
+    }
+  }
+
+  .button-container {
+    margin-bottom: 30px;
+  }
+
+  button {
+    padding: 20px;
+    width: fit-content;
+    height: fit-content;
+    border-radius: 7px;
+    font-weight: 700;
   }
 }

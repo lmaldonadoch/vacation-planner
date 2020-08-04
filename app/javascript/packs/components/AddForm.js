@@ -78,7 +78,7 @@ const AddForm = ({ form }) => {
     return (
       <form
         onSubmit={addCity}
-        className="d-flex flex-column justify-content-center align-items-center h-100"
+        className="d-flex flex-column justify-content-center align-items-center"
       >
         <label>Select the country that this City/Destination belongs to</label>
         <select name="country" className="country">
@@ -95,14 +95,14 @@ const AddForm = ({ form }) => {
           required
         />
         <textarea placeholder="Enter the City description" required />
-        <button tye="submit">Add Country</button>
+        <button tye="submit">Add City</button>
       </form>
     );
   } else {
     return (
       <form
         onSubmit={addCountry}
-        className="d-flex flex-column justify-content-center align-items-center h-100"
+        className="d-flex flex-column justify-content-center align-items-center"
       >
         <input
           type="text"
@@ -110,7 +110,7 @@ const AddForm = ({ form }) => {
           required
         />
         <textarea placeholder="Enter the Country description" required />
-        <label>Please add a City for this new Country</label>
+        <h3>Please add a City for this new Country</h3>
         <input type="text" placeholder="Enter the city name" required />
         <input
           type="text"
@@ -118,7 +118,7 @@ const AddForm = ({ form }) => {
           required
         />
         <textarea placeholder="Enter the City description" required />
-        <button tye="submit">Add City</button>
+        <button tye="submit">Add Country</button>
       </form>
     );
   }
