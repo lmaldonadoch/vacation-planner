@@ -273,6 +273,41 @@ form {
   }
 }
 
+.Dates {
+  .scheduled-trip {
+    border: #f1f1f1 solid 1px;
+    box-shadow: -2px -2px 8px rgba(7, 8, 9, 0.3);
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  h5 {
+    font-weight: 700;
+  }
+
+  form {
+    margin-top: 20px;
+
+    label {
+      opacity: 0.5;
+    }
+
+    .selector-container {
+      margin-bottom: 30px;
+    }
+
+    select {
+      border: none;
+    }
+
+    button {
+      margin: 0 auto;
+      border-radius: 10px;
+    }
+  }
+}
+
 @media (min-width: 576px) {
   .modal-dialog {
     max-width: 1000px !important;

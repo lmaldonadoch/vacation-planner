@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { dateCreate, dateSetup } from '../actions/DateActions';
+import { userLoggedIn } from '../actions/UserActions';
 
 const Dates = ({ match }) => {
   const { country, city } = match.params;
@@ -25,8 +26,6 @@ const Dates = ({ match }) => {
 
     const formValues = [...e.target].map((input) => input.value);
 
-    console.log(formValues);
-
     const destination = destinationsState.destinations.filter(
       (destination) => destination.attributes.place === formValues[1]
     );
@@ -46,11 +45,17 @@ const Dates = ({ match }) => {
         image_id: imageId,
         start_date: formValues[3],
         end_date: formValues[4],
+        country: formValues[1],
+        city: formValues[2],
       })
     );
   };
 
-  console.log(datesState);
+  useEffect(() => {
+    if (datesState.status === 'created') {
+      dispatch(userLoggedIn());
+    }
+  }, [datesState.status]);
 
   const updateCountry = (e) => {
     const { value } = e.target;
@@ -68,47 +73,68 @@ const Dates = ({ match }) => {
   };
 
   return (
-    <div className="Dates col-12 col-md-10">
-      <form className="schedule-date" onSubmit={setDestination}>
+    <div className="Dates col-12 col-md-10 d-flex flex-column align-items-center justify-content-center">
+      <div className="schedule-trips-container">
+        {userState.vacationDates.map((trip) => (
+          <div
+            className="scheduled-trip d-flex w-80 flex-column justify-content-center"
+            key={trip.id}
+          >
+            <p>
+              You have a trip scheduled from {trip.start_date} to{' '}
+              {trip.end_date} to:
+            </p>
+            <h5>
+              {trip.city}, {trip.country}
+            </h5>
+          </div>
+        ))}
+      </div>
+      <form
+        className="schedule-date d-flex flex-column"
+        onSubmit={setDestination}
+      >
         <div className="form-group">
           <label>Your name</label>
           <input type="text" value={userState.user.name} readOnly />
         </div>
 
-        <select
-          name="country"
-          onChange={updateCountry}
-          className="country"
-          value={datesState.date.country}
-        >
-          {destinationsState.destinations.map((destination) => (
-            <option
-              value={destination.attributes.place}
-              key={destination.attributes.place}
-            >
-              {destination.attributes.place}
-            </option>
-          ))}
-        </select>
+        <div className="selector-container d-flex justify-content-between">
+          <select
+            name="country"
+            onChange={updateCountry}
+            className="country"
+            value={datesState.date.country}
+          >
+            {destinationsState.destinations.map((destination) => (
+              <option
+                value={destination.attributes.place}
+                key={destination.attributes.place}
+              >
+                {destination.attributes.place}
+              </option>
+            ))}
+          </select>
 
-        <select name="city" className="country">
-          {datesState.date.cities.map((destination) => (
-            <option
-              value={destination.attributes.city}
-              key={destination.attributes.city}
-            >
-              {destination.attributes.city}
-            </option>
-          ))}
-        </select>
+          <select name="city" className="country">
+            {datesState.date.cities.map((destination) => (
+              <option
+                value={destination.attributes.city}
+                key={destination.attributes.city}
+              >
+                {destination.attributes.city}
+              </option>
+            ))}
+          </select>
+        </div>
 
         <div className="form-group">
-          <label>When are you going?</label>
+          <label>What is your departure date?</label>
           <input type="date" />
         </div>
 
         <div className="form-group">
-          <label>When are you coming back?</label>
+          <label>What is your return date?</label>
           <input type="date" />
         </div>
 

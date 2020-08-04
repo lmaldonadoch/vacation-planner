@@ -25,8 +25,8 @@ module API
         if @current_user
           render json: {
             logged_in: true,
-            user: @current_user
-            vacation_dates: @current_user.vacation_dates
+            user: @current_user,
+            vacation_dates: @current_user.vacation_dates,
           }
         else
           render json: {logged_in: false}

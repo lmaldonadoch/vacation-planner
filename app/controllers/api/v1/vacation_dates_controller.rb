@@ -26,7 +26,7 @@ module API
       private
 
       def date_params
-        params.require(:date).permit(:user_id, :destination_id, :image_id, :start_date, :end_date)
+        params.require(:date).permit(:user_id, :destination_id, :image_id, :start_date, :end_date, :country, :city)
       end
     end
   end

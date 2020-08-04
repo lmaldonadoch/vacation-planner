@@ -29,6 +29,8 @@ const Nav = () => {
     }
   }, [userState.loggedIn]);
 
+  console.log(userState);
+
   useEffect(() => {
     dispatch(userLoggedIn());
   }, [userState.loggedIn]);
