@@ -51,7 +51,7 @@ module API
       private
 
       def validate_admin
-        unless @current_user.adim
+        unless @current_user.admin
           render json: { status: 401 }
         end
       end
