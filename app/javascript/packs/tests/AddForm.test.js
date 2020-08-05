@@ -4,7 +4,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import AddForm from '../components/AddForm';
 import Wrapper from './Wrapper';
 
-Enzyme.configure({ adapter: new Adapter() });
+Enzyme.configure({ adapter: new Adapter(), disableLifecycleMethods: true });
 
 describe('AddForm', () => {
   let wrapper;

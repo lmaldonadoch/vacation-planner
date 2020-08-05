@@ -108,6 +108,10 @@ const Dates = ({ match }) => {
           </div>
         ))}
       </div>
+      <div className="title">
+        <h2>Schedule your trip!</h2>
+        <p>Select the Country and City/Destination you would like to visit</p>
+      </div>
       <form
         className="schedule-date d-flex flex-column"
         onSubmit={setDestination}

@@ -24,10 +24,13 @@ const Register = () => {
   }, [userState.loggedIn]);
 
   return (
-    <div className="col-12 col-md-10">
+    <div className="col-12 col-md-10 d-flex flex-column justify-content-center align-items-center w-100">
+      <div className="title">
+        <h2>Create your account</h2>
+      </div>
       <form
         onSubmit={signup}
-        className="d-flex flex-column justify-content-center align-items-center h-100"
+        className="d-flex flex-column justify-content-center align-items-center w-100"
       >
         <input type="text" placeholder="Enter your name" />
         <input type="email" placeholder="Enter your email" />

@@ -22,10 +22,13 @@ const Login = () => {
   }, [userState.loggedIn]);
 
   return (
-    <div className="Login col-12 col-md-10">
+    <div className="Login col-12 col-md-10  d-flex flex-column justify-content-center align-items-center w-100">
+      <div className="title">
+        <h2>Log in</h2>
+      </div>
       <form
         onSubmit={login}
-        className="d-flex flex-column justify-content-center align-items-center h-100"
+        className="d-flex flex-column justify-content-center align-items-center w-100"
       >
         <input type="email" placeholder="Enter your email" />
         <input type="password" placeholder="Enter your password" />
