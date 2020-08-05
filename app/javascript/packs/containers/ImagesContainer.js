@@ -42,8 +42,6 @@ const imagesContainer = (props) => {
     }
   }, [page]);
 
-  console.log(`size is ${size}`, `page is ${page}`);
-
   return (
     <div className="ImagesContainer d-flex align-items-center w-100">
       <div className="col-1 d-flex justify-content-lg-between">

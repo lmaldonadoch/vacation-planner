@@ -29,7 +29,6 @@ describe('Image', () => {
   });
 
   it('Has a div with a background image', () => {
-    console.log(wrapper.find('.image-div'));
     expect(wrapper.find('.image-div').prop('style')).toHaveProperty(
       'background',
       'url(image_url) center center no-repeat'
