@@ -23,14 +23,14 @@ RSpec.describe "Images", type: :request do
       expect(response.body).to include('created')
     end
 
-    # it 'deletes an image' do 
-    #   d1
-    #   user
-    #   post '/api/v1/sessions', params: {user: {email: 'test@test.com', password: '123'}}
-    #   post '/api/v1/images', params: {image: {city: 'new place', city_description: 'some awesome description', image_url: 'image url', destination_id: d1.id}}
-      
-    #   delete '/api/v1/images/1'
-    #   expect(response).to be_successful
-    # end
+    it 'deletes a scheduled vacation' do 
+      d1
+      im1
+      user
+      post '/api/v1/vacation_dates', params: {date: {user_id: user.id, destination_id: d1.id, image_id: im1.id, start_date: '10/10/21', end_date: '11/10/21', country: 'Mexico', city: 'Tulum'}}
+      vacation = VacationDate.last
+      delete "/api/v1/vacation_dates/#{vacation.id}"
+      expect(response).to be_successful
+    end
   end
 end
