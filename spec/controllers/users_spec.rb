@@ -36,13 +36,4 @@ RSpec.describe User, type: :model do
       expect(user.errors[:password]).to_not include("can't be blank")
     end
   end
-
-  describe '#Sessions' do
-    let (:user) { User.create(name: 'test', email: 'test@test.com', password: '123', password_confirmation: '123') }
-    it 'Finds the created user' do
-      p user
-      user = User.new
-      p user
-    end
-  end
 end
