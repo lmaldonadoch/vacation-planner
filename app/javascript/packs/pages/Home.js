@@ -16,7 +16,8 @@ const Home = () => {
   useEffect(() => {
     if (
       !destinationsState.isFetching &&
-      destinationsState.destinations.length > 1
+      destinationsState.destinations.length > 1 &&
+      imagesToDisplay.length < destinationsState.destinations.length
     ) {
       destinationsState.destinations.forEach((destination) => {
         setImagesToDisplay((prevState) =>

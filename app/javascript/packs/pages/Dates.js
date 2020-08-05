@@ -11,13 +11,31 @@ const Dates = ({ match }) => {
   const datesState = useSelector((state) => state.dates);
   const dispatch = useDispatch();
 
+  console.log(destinationsState);
+
   useEffect(() => {
-    dispatch(
-      dateSetup({
-        country: country,
-        cities: [{ attributes: { city: city } }],
-      })
-    );
+    if (country) {
+      dispatch(
+        dateSetup({
+          country: country,
+          cities: [{ attributes: { city: city } }],
+        })
+      );
+    } else {
+      dispatch(
+        dateSetup({
+          country: destinationsState.destinations[0],
+          cities: [
+            {
+              attributes: {
+                city:
+                  destinationsState.destinations[0].images[0].attributes.city,
+              },
+            },
+          ],
+        })
+      );
+    }
   }, []);
 
   const setDestination = (e) => {
