@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import Carousel from 'react-bootstrap/Carousel';
 import { useLocation, Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import Spinner from 'react-bootstrap/Spinner';
 
