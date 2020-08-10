@@ -26,6 +26,12 @@ body,
   overflow-x: hidden;
 }
 
+.Image a {
+  width: 100%;
+  color: black;
+  text-align: center;
+}
+
 nav a,
 nav a:hover,
 nav button {
@@ -33,12 +39,6 @@ nav button {
   font-weight: 900;
   font-size: 20px;
   text-decoration: none !important;
-}
-
-.Image a {
-  width: 100%;
-  color: black;
-  text-align: center;
 }
 
 nav {

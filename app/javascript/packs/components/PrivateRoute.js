@@ -14,8 +14,8 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
         render={props => (userState.loggedIn && userState.user.admin ? (
           <Component {...props} />
         ) : (
-            <Redirect to="/" />
-          ))}
+          <Redirect to="/" />
+        ))}
       />
     );
   }
