@@ -37,6 +37,8 @@ const Nav = () => {
     dispatch(userLogout());
   };
 
+  console.log(userState);
+
   const clickHandler = (e) => {
     let li = document.getElementById('nav-links').children;
     [...li].forEach((elem) => {
