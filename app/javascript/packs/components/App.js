@@ -12,14 +12,14 @@ import AddDestination from '../pages/AddDestination';
 const App = () => {
   return (
     <div className="App row">
-      {/* <Nav /> */}
+      <Nav />
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/login" exact component={Login} />
         <Route path="/register" exact component={Register} />
-        <PrivateRoute path="/dates" exact component={Dates} />
+        {/* <PrivateRoute path="/dates" exact component={Dates} />
         <PrivateRoute path="/dates/:country/:city" component={Dates} />
-        <PrivateRoute path="/add-destination" component={AddDestination} />
+        <PrivateRoute path="/add-destination" component={AddDestination} /> */}
         <Route path="/:country" component={Details} />
       </Switch>
     </div>
