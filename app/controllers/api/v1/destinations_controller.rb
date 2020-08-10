@@ -3,10 +3,10 @@ module API
     class Api::V1::DestinationsController < ApplicationController
       skip_before_action :verify_authenticity_token
       include CurrentUserConcern
-      before_action :validate_admin, only: %i[create, update, destroy]
+      before_action :validate_admin, only: %i[create update destroy]
       def index
         destinations = Destination.all.includes(:images)
-        
+
         render json: DestinationSerializer.new(destinations, options).serialized_json
       end
 
@@ -30,7 +30,7 @@ module API
         destination = Destination.find(params[:id])
 
         if destination.update(
-          place: params['destination']['place'],
+          place: params['destination']['place']
         )
           render json: DestinationSerializer.new(destination, options).serialized_json
         else
@@ -46,14 +46,12 @@ module API
         else
           render json: { status: 500 }
         end
-      end 
+      end
 
       private
 
       def validate_admin
-        unless @current_user.admin
-          render json: { status: 401 }
-        end
+        render json: { status: 401 } unless @current_user.admin
       end
 
       def destination_params
@@ -61,7 +59,7 @@ module API
       end
 
       def options
-        @options = {include: [:images]}
+        @options = { include: [:images] }
       end
     end
   end

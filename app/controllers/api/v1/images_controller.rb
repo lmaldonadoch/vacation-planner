@@ -3,7 +3,7 @@ module API
     class Api::V1::ImagesController < ApplicationController
       skip_before_action :verify_authenticity_token
       include CurrentUserConcern
-      before_action :validate_admin, only: %i[create, destroy]
+      before_action :validate_admin, only: %i[create destroy]
 
       def create
         image = Image.create!(image_params)
@@ -23,14 +23,12 @@ module API
         else
           render json: { status: 500 }
         end
-      end 
+      end
 
       private
 
       def validate_admin
-        unless @current_user.admin
-          render json: { status: 401 }
-        end
+        render json: { status: 401 } unless @current_user.admin
       end
 
       def image_params

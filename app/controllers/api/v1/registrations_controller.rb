@@ -14,8 +14,8 @@ module API
           session[:user_id] = user.id
           render json: {
             status: 'created',
-            user: user.
-            vacation_dates: [],
+            user: user,
+            vacation_dates: []
           }
         else
           render json: { status: 500 }

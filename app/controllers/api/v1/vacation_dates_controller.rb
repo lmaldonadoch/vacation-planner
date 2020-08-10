@@ -21,7 +21,7 @@ module API
         else
           render json: { status: 500 }
         end
-      end 
+      end
 
       private
 

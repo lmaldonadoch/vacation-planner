@@ -5,6 +5,4 @@ class Image < ApplicationRecord
   validates :image_url, presence: true, uniqueness: { case_sensitive: false }
   validates :city, presence: true, uniqueness: { case_sensitive: false }
   validates :city_description, presence: true
-  
-  
 end
