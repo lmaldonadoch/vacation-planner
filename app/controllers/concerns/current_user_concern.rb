@@ -12,7 +12,7 @@ module CurrentUserConcern
     p '*' * 20
     p '*' * 20
     p 'SET CURRENT USER IN CONCERN'
-    p session[:user_id]
+    p session
     p '*' * 20
     p '*' * 20
     p '*' * 20
