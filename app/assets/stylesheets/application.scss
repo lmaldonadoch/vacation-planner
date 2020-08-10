@@ -11,8 +11,8 @@ span {
 }
 
 *,
-*:before,
-*:after {
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -24,6 +24,20 @@ body,
 .App {
   min-height: 100vh;
   overflow-x: hidden;
+}
+
+nav a,
+a:hover {
+  color: #525252;
+  font-weight: 900;
+  font-size: 20px;
+  text-decoration: none !important;
+}
+
+.Image a {
+  width: 100%;
+  color: black;
+  text-align: center;
 }
 
 nav {
@@ -39,17 +53,6 @@ nav {
     width: 100%;
     height: 150px;
     margin-top: 100px;
-  }
-
-  a,
-  a:hover {
-    color: #525252;
-    font-weight: 900;
-    font-size: 20px;
-  }
-
-  a:hover {
-    text-decoration: none !important;
   }
 
   li {
@@ -128,26 +131,26 @@ form {
   }
 }
 
+.title {
+  text-align: center;
+  margin-bottom: 50px;
+
+  h2 {
+    font-weight: 900;
+    color: black;
+  }
+
+  p {
+    font-size: 14px;
+    color: black;
+    opacity: 0.6;
+  }
+}
+
 .Home {
   a:hover {
     text-decoration: none;
     color: black;
-  }
-
-  .title {
-    text-align: center;
-    margin-bottom: 50px;
-
-    h1 {
-      font-weight: 900;
-      color: black;
-    }
-
-    p {
-      font-size: 14px;
-      color: black;
-      opacity: 0.6;
-    }
   }
 }
 
@@ -161,6 +164,7 @@ form {
     background: rgb(151, 191, 15);
     border: none;
   }
+
   .left {
     border-radius: 0 50% 50% 0;
   }
@@ -174,13 +178,11 @@ form {
   }
 }
 
-.Image {
-  a {
-    width: 100%;
-    color: black;
-    text-align: center;
-  }
+.Dates h5 {
+  font-weight: 700;
+}
 
+.Image {
   .image-div {
     min-width: 100%;
     min-height: 200px;
@@ -210,20 +212,17 @@ form {
   }
 }
 
-.title {
-  text-align: center;
-  margin-bottom: 50px;
+.AddDestination button {
+  padding: 20px;
+  width: fit-content;
+  height: fit-content;
+  border-radius: 7px;
+  font-weight: 700;
+}
 
-  h2 {
-    font-weight: 900;
-    color: black;
-  }
-
-  p {
-    font-size: 14px;
-    color: black;
-    opacity: 0.6;
-  }
+.Dates form button {
+  margin: 0 auto;
+  border-radius: 10px;
 }
 
 .Details {
@@ -298,10 +297,6 @@ form {
     margin-bottom: 10px;
   }
 
-  h5 {
-    font-weight: 700;
-  }
-
   form {
     margin-top: 20px;
 
@@ -316,16 +311,12 @@ form {
     select {
       border: none;
     }
-
-    button {
-      margin: 0 auto;
-      border-radius: 10px;
-    }
   }
 }
 
 .AddDestination {
   padding: 30px;
+
   form {
     height: fit-content;
 
@@ -344,13 +335,5 @@ form {
 
   .button-container {
     margin-bottom: 30px;
-  }
-
-  button {
-    padding: 20px;
-    width: fit-content;
-    height: fit-content;
-    border-radius: 7px;
-    font-weight: 700;
   }
 }

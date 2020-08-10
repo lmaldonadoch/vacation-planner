@@ -11,8 +11,6 @@ const Dates = ({ match }) => {
   const datesState = useSelector((state) => state.dates);
   const dispatch = useDispatch();
 
-  console.log(destinationsState);
-
   useEffect(() => {
     if (country) {
       dispatch(

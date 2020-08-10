@@ -30,7 +30,6 @@ const Details = ({ match }) => {
     );
   }, []);
 
-  console.log(imagesToDisplay);
   if (imagesToDisplay[0]) {
     return (
       <div className="Details col-12 col-md-10 d-flex flex-column justify-content-center">

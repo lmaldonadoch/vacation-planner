@@ -63,8 +63,6 @@ export const countryCreate = (country) => async (dispatch) => {
       type: 'CREATING_COUNTRY',
     });
 
-    console.log(country, 'country value in actions');
-
     axios
       .post(
         '/api/v1/destinations',
@@ -74,7 +72,6 @@ export const countryCreate = (country) => async (dispatch) => {
         { withCredentials: true }
       )
       .then((response) => {
-        console.log(response, 'response from creating country');
         dispatch({
           type: 'COUNTRY_CREATED',
           payload: response.data.data,

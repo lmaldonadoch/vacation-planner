@@ -15,7 +15,6 @@ export const dateCreate = (date) => async (dispatch) => {
         { withCredentials: true }
       )
       .then((response) => {
-        console.log(response);
         dispatch({
           type: 'DATE_CREATED',
           payload: response,

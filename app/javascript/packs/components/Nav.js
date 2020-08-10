@@ -50,8 +50,6 @@ const Nav = () => {
     e.target.classList.add('active');
   };
 
-  console.log(userState);
-
   if (userState.loggedIn && userState.user.admin) {
     return (
       <nav className="col-12 col-md-2 d-flex flex-column justify-content-center">

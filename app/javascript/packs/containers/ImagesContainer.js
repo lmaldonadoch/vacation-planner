@@ -24,7 +24,6 @@ const imagesContainer = (props) => {
   }
 
   useLayoutEffect(() => {
-    console.log((page + 1) * size, images.length);
     if (page === 0) {
       document.getElementById('decrement').disabled = true;
       document.getElementById('decrement').classList.add('disabled');

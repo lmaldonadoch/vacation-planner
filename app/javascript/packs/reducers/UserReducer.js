@@ -66,7 +66,6 @@ const userReducer = (state = initialState, action) => {
         isFetching: true,
       };
     case 'USER_REGISTERED':
-      console.log(payload, 'register reducer');
       return {
         ...state,
         isFetching: false,

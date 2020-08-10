@@ -8,7 +8,6 @@ const AddDestination = () => {
     setForm(selector);
   };
 
-  console.log(form);
   return (
     <div className="AddDestination col-12 col-md-10 d-flex flex-column justify-content-center align-items-center">
       <div className="title">
