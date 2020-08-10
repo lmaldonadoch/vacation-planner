@@ -6,14 +6,14 @@ module CurrentUserConcern
   end
 
   def set_current_user
-    
+    session["init"] = true
     p '*' * 20
     p '*' * 20
     p '*' * 20
     p '*' * 20
     p '*' * 20
     p 'SET CURRENT USER IN CONCERN'
-    p session
+    p session[:user_id]
     p '*' * 20
     p '*' * 20
     p '*' * 20
