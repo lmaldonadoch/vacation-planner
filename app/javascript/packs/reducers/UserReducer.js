@@ -52,7 +52,7 @@ const userReducer = (state = initialState, action) => {
         isFetching: false,
         loggedIn: true,
         user: payload.user,
-        vacationDates: payload.data.vacation_dates,
+        vacationDates: payload.vacation_dates,
       };
     case 'ERROR_SIGNING_USER':
       return {
