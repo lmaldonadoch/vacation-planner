@@ -47,7 +47,6 @@ const userReducer = (state = initialState, action) => {
         isFetching: true,
       };
     case 'USER_LOGGED_IN':
-      console.log(payload);
       return {
         ...state,
         isFetching: false,

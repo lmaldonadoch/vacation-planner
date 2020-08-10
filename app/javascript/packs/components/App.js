@@ -12,7 +12,7 @@ import AddDestination from '../pages/AddDestination';
 const App = () => {
   return (
     <div className="App row">
-      <Nav />
+      {/* <Nav /> */}
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/login" exact component={Login} />
