@@ -52,7 +52,7 @@ const userReducer = (state = initialState, action) => {
         isFetching: false,
         loggedIn: true,
         user: payload.user,
-        vacationDates: payload.vacation_dates,
+        vacationDates: payload.data.vacation_dates,
       };
     case 'ERROR_SIGNING_USER':
       return {
@@ -66,12 +66,12 @@ const userReducer = (state = initialState, action) => {
         isFetching: true,
       };
     case 'USER_REGISTERED':
+      console.log(payload, 'register reducer');
       return {
         ...state,
         isFetching: false,
         loggedIn: true,
-        user: payload.user,
-        vacationDates: payload.vacation_dates,
+        user: payload.data.user,
       };
     case 'REGISTRATION_ERROR':
       return {
