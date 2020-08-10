@@ -47,7 +47,7 @@ describe('Register', () => {
   });
 
   it('Asks for the password confirmation', () => {
-    expect(wrapper.find('input').at(2).prop('placeholder')).toEqual(
+    expect(wrapper.find('input').at(3).prop('placeholder')).toEqual(
       'Confirm your Password'
     );
   });
