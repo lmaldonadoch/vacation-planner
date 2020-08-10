@@ -12,11 +12,11 @@ describe('Image', () => {
     wrapper = mount(
       <Wrapper>
         <Image
-          place={'Mexico'}
-          image={'image_url'}
-          description={'some cool description'}
+          place="Mexico"
+          image="image_url"
+          description="some cool description"
         />
-      </Wrapper>
+      </Wrapper>,
     );
   });
 
@@ -31,7 +31,7 @@ describe('Image', () => {
   it('Has a div with a background image', () => {
     expect(wrapper.find('.image-div').prop('style')).toHaveProperty(
       'background',
-      'url(image_url) center center no-repeat'
+      'url(image_url) center center no-repeat',
     );
   });
 
@@ -41,7 +41,7 @@ describe('Image', () => {
 
   it('Displays the description', () => {
     expect(wrapper.find('.country-description').text()).toEqual(
-      'some cool description'
+      'some cool description',
     );
   });
 });

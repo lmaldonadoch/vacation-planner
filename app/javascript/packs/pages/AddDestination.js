@@ -4,7 +4,7 @@ import AddForm from '../components/AddForm';
 const AddDestination = () => {
   const [form, setForm] = useState(null);
 
-  const formUpdate = (selector) => {
+  const formUpdate = selector => {
     setForm(selector);
   };
 
@@ -21,10 +21,15 @@ const AddDestination = () => {
         <button
           className="schedule-button"
           onClick={() => formUpdate('country')}
+          type="button"
         >
           Add a new Country
         </button>
-        <button className="schedule-button" onClick={() => formUpdate('city')}>
+        <button
+          className="schedule-button"
+          onClick={() => formUpdate('city')}
+          type="button"
+        >
           Add a new City/Destination
         </button>
       </div>

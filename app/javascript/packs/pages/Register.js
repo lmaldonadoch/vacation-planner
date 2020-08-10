@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react';
-import { userRegistration } from '../actions/UserActions';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { userRegistration } from '../actions/UserActions';
 
 const Register = () => {
   const dispatch = useDispatch();
-  const userState = useSelector((state) => state.user);
+  const userState = useSelector(state => state.user);
   const history = useHistory();
 
-  const signup = (e) => {
+  const signup = e => {
     e.preventDefault();
     const user = {
       name: e.target[0].value,
@@ -36,7 +36,7 @@ const Register = () => {
         <input type="email" placeholder="Enter your email" />
         <input type="password" placeholder="Enter your password" />
         <input type="password" placeholder="Confirm your Password" />
-        <button tye="submit">Sign up!</button>
+        <button type="submit">Sign up!</button>
       </form>
     </div>
   );

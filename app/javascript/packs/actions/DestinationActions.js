@@ -1,19 +1,20 @@
 import axios from 'axios';
 
-export const destinationsLoad = () => async (dispatch) => {
+export const destinationsLoad = () => async dispatch => {
   try {
     dispatch({
       type: 'FETCHING_DESTINATIONS',
     });
 
-    axios.get('/api/v1/destinations.json').then((response) => {
-      let places = response.data.data;
-      places.forEach((place) => {
-        place['images'] = response.data.included.filter((image) => {
+    axios.get('/api/v1/destinations.json').then(response => {
+      const places = response.data.data;
+      places.forEach(place => {
+        // eslint-disable-next-line no-param-reassign
+        place.images = response.data.included.filter(image => {
           if (image.attributes.destination_id.toString() === place.id) {
             return image;
           }
-          return;
+          return false;
         });
       });
       dispatch({
@@ -29,7 +30,7 @@ export const destinationsLoad = () => async (dispatch) => {
   }
 };
 
-export const cityCreate = (city) => async (dispatch) => {
+export const cityCreate = city => async dispatch => {
   try {
     dispatch({
       type: 'CREATING_CITY',
@@ -41,9 +42,9 @@ export const cityCreate = (city) => async (dispatch) => {
         {
           image: city,
         },
-        { withCredentials: true }
+        { withCredentials: true },
       )
-      .then((response) => {
+      .then(response => {
         dispatch({
           type: 'CITY_CREATED',
           payload: response.data,
@@ -57,7 +58,7 @@ export const cityCreate = (city) => async (dispatch) => {
   }
 };
 
-export const countryCreate = (country) => async (dispatch) => {
+export const countryCreate = country => async dispatch => {
   try {
     dispatch({
       type: 'CREATING_COUNTRY',
@@ -69,9 +70,9 @@ export const countryCreate = (country) => async (dispatch) => {
         {
           destination: country,
         },
-        { withCredentials: true }
+        { withCredentials: true },
       )
-      .then((response) => {
+      .then(response => {
         dispatch({
           type: 'COUNTRY_CREATED',
           payload: response.data.data,

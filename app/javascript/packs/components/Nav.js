@@ -1,21 +1,20 @@
 import React, { useEffect, useLayoutEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { userLoggedIn, userLogout } from '../actions/UserActions';
 import { useDispatch, useSelector } from 'react-redux';
+import { userLoggedIn, userLogout } from '../actions/UserActions';
 
 const Nav = () => {
   const dispatch = useDispatch();
-  const userState = useSelector((state) => state.user);
+  const userState = useSelector(state => state.user);
   const location = useLocation();
 
   useLayoutEffect(() => {
-    let elem =
-      location.pathname.split('/')[1] === ''
-        ? document.getElementById('home')
-        : document.getElementById(`${location.pathname.split('/')[1]}`);
-    let li = document.getElementById('nav-links').children;
-    [...li].forEach((elem) => {
-      let targetChild = [...elem.children][0];
+    const elem = location.pathname.split('/')[1] === ''
+      ? document.getElementById('home')
+      : document.getElementById(`${location.pathname.split('/')[1]}`);
+    const li = document.getElementById('nav-links').children;
+    [...li].forEach(elem => {
+      const targetChild = [...elem.children][0];
       if (targetChild) {
         targetChild.classList.remove('active');
       } else {
@@ -37,12 +36,10 @@ const Nav = () => {
     dispatch(userLogout());
   };
 
-  console.log(userState);
-
-  const clickHandler = (e) => {
-    let li = document.getElementById('nav-links').children;
-    [...li].forEach((elem) => {
-      let targetChild = [...elem.children][0];
+  const clickHandler = e => {
+    const li = document.getElementById('nav-links').children;
+    [...li].forEach(elem => {
+      const targetChild = [...elem.children][0];
       if (targetChild) {
         targetChild.classList.remove('active');
       } else {
@@ -57,36 +54,50 @@ const Nav = () => {
       <nav className="col-12 col-md-2 d-flex flex-column justify-content-center">
         <div className="logo" />
         <ul id="nav-links">
-          <Link to="/" key={'destinations'} onClick={clickHandler}>
+          <Link to="/" key="destinations" onClick={clickHandler}>
             <li id="home">Destinations</li>
           </Link>
-          <Link to="/dates" key={'schedule'} onClick={clickHandler}>
+          <Link to="/dates" key="schedule" onClick={clickHandler}>
             <li id="dates">Schedule Vacations</li>
           </Link>
           <Link
             to="/add-destination"
-            key={'add-destination'}
+            key="add-destination"
             onClick={clickHandler}
           >
             <li id="add-destination">Create a new Destination</li>
           </Link>
-          <li onClick={logout} key={userState.loggedIn}>
-            Log Out
+          <li key={userState.loggedIn}>
+            <button onClick={logout} type="button">
+              Log Out
+            </button>
           </li>
         </ul>
 
         <div className="social_container d-flex justify-content-between">
-          <a href="https://twitter.com/LuisAngelMCh" target="_blank">
-            <i className="fab fa-twitter"></i>
+          <a
+            href="https://twitter.com/LuisAngelMCh"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <i className="fab fa-twitter" />
           </a>
-          <a href="https://github.com/lmaldonadoch" target="_blank">
-            <i className="fab fa-github"></i>
+          <a
+            href="https://github.com/lmaldonadoch"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <i className="fab fa-github" />
           </a>
-          <a href="https://www.linkedin.com/in/lmaldonadoch/" target="_blank">
-            <i className="fab fa-linkedin-in"></i>
+          <a
+            href="https://www.linkedin.com/in/lmaldonadoch/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <i className="fab fa-linkedin-in" />
           </a>
           <a href="mailto: lmaldonadoch@gmail.com">
-            <i className="fas fa-envelope"></i>
+            <i className="fas fa-envelope" />
           </a>
         </div>
       </nav>
@@ -98,29 +109,43 @@ const Nav = () => {
       <nav className="col-12 col-md-2 d-flex flex-column justify-content-center">
         <div className="logo" />
         <ul id="nav-links">
-          <Link to="/" key={'destinations'} onClick={clickHandler}>
+          <Link to="/" key="destinations" onClick={clickHandler}>
             <li id="home">Destinations</li>
           </Link>
-          <Link to="/dates" key={'schedule'} onClick={clickHandler}>
+          <Link to="/dates" key="schedule" onClick={clickHandler}>
             <li id="dates">Schedule Vacations</li>
           </Link>
-          <li onClick={logout} key={userState.loggedIn}>
-            Log Out
+          <li key={userState.loggedIn}>
+            <button onClick={logout} type="button">
+              Log Out
+            </button>
           </li>
         </ul>
 
         <div className="social_container d-flex justify-content-between">
-          <a href="https://twitter.com/LuisAngelMCh" target="_blank">
-            <i className="fab fa-twitter"></i>
+          <a
+            href="https://twitter.com/LuisAngelMCh"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <i className="fab fa-twitter" />
           </a>
-          <a href="https://github.com/lmaldonadoch" target="_blank">
-            <i className="fab fa-github"></i>
+          <a
+            href="https://github.com/lmaldonadoch"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <i className="fab fa-github" />
           </a>
-          <a href="https://www.linkedin.com/in/lmaldonadoch/" target="_blank">
-            <i className="fab fa-linkedin-in"></i>
+          <a
+            href="https://www.linkedin.com/in/lmaldonadoch/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <i className="fab fa-linkedin-in" />
           </a>
           <a href="mailto: lmaldonadoch@gmail.com">
-            <i className="fas fa-envelope"></i>
+            <i className="fas fa-envelope" />
           </a>
         </div>
       </nav>
@@ -130,10 +155,10 @@ const Nav = () => {
     <nav className="col-12 col-md-2 d-flex flex-column justify-content-center">
       <div className="logo" />
       <ul id="nav-links">
-        <Link to="/" key={'destinations'} onClick={clickHandler}>
+        <Link to="/" key="destinations" onClick={clickHandler}>
           <li id="home">Destinations</li>
         </Link>
-        <Link to="/login" key={'login'} onClick={clickHandler}>
+        <Link to="/login" key="login" onClick={clickHandler}>
           <li id="login">Log In</li>
         </Link>
         <Link to="/register" key={userState.loggedIn} onClick={clickHandler}>
@@ -142,17 +167,29 @@ const Nav = () => {
       </ul>
 
       <div className="social_container d-flex justify-content-between">
-        <a href="https://twitter.com/LuisAngelMCh" target="_blank">
-          <i className="fab fa-twitter"></i>
+        <a
+          href="https://twitter.com/LuisAngelMCh"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <i className="fab fa-twitter" />
         </a>
-        <a href="https://github.com/lmaldonadoch" target="_blank">
-          <i className="fab fa-github"></i>
+        <a
+          href="https://github.com/lmaldonadoch"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <i className="fab fa-github" />
         </a>
-        <a href="https://www.linkedin.com/in/lmaldonadoch/" target="_blank">
-          <i className="fab fa-linkedin-in"></i>
+        <a
+          href="https://www.linkedin.com/in/lmaldonadoch/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <i className="fab fa-linkedin-in" />
         </a>
         <a href="mailto: lmaldonadoch@gmail.com">
-          <i className="fas fa-envelope"></i>
+          <i className="fas fa-envelope" />
         </a>
       </div>
     </nav>

@@ -1,15 +1,15 @@
-/* eslint-disable */
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import {
   cityCreate,
   destinationsLoad,
   countryCreate,
 } from '../actions/DestinationActions';
-import { useHistory } from 'react-router-dom';
 
 const AddForm = ({ form }) => {
-  const destinationsState = useSelector((state) => state.destinations);
+  const destinationsState = useSelector(state => state.destinations);
   const dispatch = useDispatch();
   const history = useHistory();
   const [cityForCountry, setCityForCountry] = useState({
@@ -19,10 +19,10 @@ const AddForm = ({ form }) => {
     city_description: null,
   });
 
-  const addCity = (e) => {
+  const addCity = e => {
     e.preventDefault();
     e.persist();
-    const formValues = [...e.target].map((input) => input.value);
+    const formValues = [...e.target].map(input => input.value);
 
     dispatch(
       cityCreate({
@@ -30,20 +30,20 @@ const AddForm = ({ form }) => {
         destination_id: formValues[0],
         city: formValues[1],
         city_description: formValues[3],
-      })
+      }),
     );
   };
 
-  const addCountry = (e) => {
+  const addCountry = e => {
     e.preventDefault();
     e.persist();
-    const formValues = [...e.target].map((input) => input.value);
+    const formValues = [...e.target].map(input => input.value);
 
     dispatch(
       countryCreate({
         place: formValues[0],
         country_description: formValues[1],
-      })
+      }),
     );
 
     setCityForCountry({
@@ -62,7 +62,7 @@ const AddForm = ({ form }) => {
           destination_id: destinationsState.destinations[0].id,
           city: cityForCountry.city,
           city_description: cityForCountry.city_description,
-        })
+        }),
       );
     }
   }, [destinationsState.destinations]);
@@ -74,16 +74,16 @@ const AddForm = ({ form }) => {
     }
   }, [destinationsState.status]);
 
-  if (!form) return <form></form>;
-  else if (form === 'city') {
+  if (!form) return <form />;
+  if (form === 'city') {
     return (
       <form
         onSubmit={addCity}
         className="d-flex flex-column justify-content-center align-items-center"
       >
-        <label>Select the country that this City/Destination belongs to</label>
+        <p>Select the country that this City/Destination belongs to</p>
         <select name="country" className="country">
-          {destinationsState.destinations.map((destination) => (
+          {destinationsState.destinations.map(destination => (
             <option value={destination.id} key={destination.attributes.place}>
               {destination.attributes.place}
             </option>
@@ -96,33 +96,40 @@ const AddForm = ({ form }) => {
           required
         />
         <textarea placeholder="Enter the City description" required />
-        <button tye="submit">Add City</button>
-      </form>
-    );
-  } else {
-    return (
-      <form
-        onSubmit={addCountry}
-        className="d-flex flex-column justify-content-center align-items-center"
-      >
-        <input
-          type="text"
-          placeholder="Please provide the name of the Country"
-          required
-        />
-        <textarea placeholder="Enter the Country description" required />
-        <h3>Please add a City for this new Country</h3>
-        <input type="text" placeholder="Enter the city name" required />
-        <input
-          type="text"
-          placeholder="Enter the URL for an image of this city"
-          required
-        />
-        <textarea placeholder="Enter the City description" required />
-        <button tye="submit">Add Country</button>
+        <button type="submit">Add City</button>
       </form>
     );
   }
+  return (
+    <form
+      onSubmit={addCountry}
+      className="d-flex flex-column justify-content-center align-items-center"
+    >
+      <input
+        type="text"
+        placeholder="Please provide the name of the Country"
+        required
+      />
+      <textarea placeholder="Enter the Country description" required />
+      <h3>Please add a City for this new Country</h3>
+      <input type="text" placeholder="Enter the city name" required />
+      <input
+        type="text"
+        placeholder="Enter the URL for an image of this city"
+        required
+      />
+      <textarea placeholder="Enter the City description" required />
+      <button type="submit">Add Country</button>
+    </form>
+  );
+};
+
+AddForm.propTypes = {
+  form: PropTypes.string,
+};
+
+AddForm.defaultProps = {
+  form: null,
 };
 
 export default AddForm;

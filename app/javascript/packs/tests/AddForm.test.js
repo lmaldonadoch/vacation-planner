@@ -12,7 +12,7 @@ describe('AddForm', () => {
     wrapper = mount(
       <Wrapper>
         <AddForm form={null} />
-      </Wrapper>
+      </Wrapper>,
     );
   });
 
@@ -34,8 +34,8 @@ describe('AddForm', () => {
   beforeEach(() => {
     wrapper = mount(
       <Wrapper>
-        <AddForm form={'country'} />
-      </Wrapper>
+        <AddForm form="country" />
+      </Wrapper>,
     );
   });
 
@@ -53,19 +53,19 @@ describe('AddForm', () => {
 
   it('Asks for the country name', () => {
     expect(wrapper.find('input').first().prop('placeholder')).toEqual(
-      'Please provide the name of the Country'
+      'Please provide the name of the Country',
     );
   });
 
   it('Asks for the city name', () => {
     expect(wrapper.find('input').at(1).prop('placeholder')).toEqual(
-      'Enter the city name'
+      'Enter the city name',
     );
   });
 
   it('Asks for the city URL', () => {
     expect(wrapper.find('input').at(2).prop('placeholder')).toEqual(
-      'Enter the URL for an image of this city'
+      'Enter the URL for an image of this city',
     );
   });
 });

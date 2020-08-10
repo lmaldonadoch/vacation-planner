@@ -27,7 +27,8 @@ body,
 }
 
 nav a,
-nav a:hover {
+nav a:hover,
+nav button {
   color: #525252;
   font-weight: 900;
   font-size: 20px;
@@ -58,6 +59,11 @@ nav {
   li {
     padding: 20px 0 20px 20px;
     cursor: pointer;
+  }
+
+  button {
+    background: none;
+    border: none;
   }
 
   .active {

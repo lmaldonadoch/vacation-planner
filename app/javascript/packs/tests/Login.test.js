@@ -12,7 +12,7 @@ describe('Login', () => {
     wrapper = mount(
       <Wrapper>
         <Login />
-      </Wrapper>
+      </Wrapper>,
     );
   });
 
@@ -30,13 +30,13 @@ describe('Login', () => {
 
   it('Asks for the email', () => {
     expect(wrapper.find('input').at(0).prop('placeholder')).toEqual(
-      'Enter your email'
+      'Enter your email',
     );
   });
 
   it('Asks for the passwordL', () => {
     expect(wrapper.find('input').at(1).prop('placeholder')).toEqual(
-      'Enter your password'
+      'Enter your password',
     );
   });
 });

@@ -12,7 +12,7 @@ describe('Register', () => {
     wrapper = mount(
       <Wrapper>
         <Register />
-      </Wrapper>
+      </Wrapper>,
     );
   });
 
@@ -30,25 +30,25 @@ describe('Register', () => {
 
   it('Asks for the name', () => {
     expect(wrapper.find('input').at(0).prop('placeholder')).toEqual(
-      'Enter your name'
+      'Enter your name',
     );
   });
 
   it('Asks for the email', () => {
     expect(wrapper.find('input').at(1).prop('placeholder')).toEqual(
-      'Enter your email'
+      'Enter your email',
     );
   });
 
   it('Asks for the password', () => {
     expect(wrapper.find('input').at(2).prop('placeholder')).toEqual(
-      'Enter your password'
+      'Enter your password',
     );
   });
 
   it('Asks for the password confirmation', () => {
     expect(wrapper.find('input').at(3).prop('placeholder')).toEqual(
-      'Confirm your Password'
+      'Confirm your Password',
     );
   });
 });

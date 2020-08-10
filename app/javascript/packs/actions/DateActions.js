@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const dateCreate = (date) => async (dispatch) => {
+export const dateCreate = date => async dispatch => {
   try {
     dispatch({
       type: 'CREATING_DATE',
@@ -10,11 +10,11 @@ export const dateCreate = (date) => async (dispatch) => {
       .post(
         '/api/v1/vacation_dates',
         {
-          date: date,
+          date,
         },
-        { withCredentials: true }
+        { withCredentials: true },
       )
-      .then((response) => {
+      .then(response => {
         dispatch({
           type: 'DATE_CREATED',
           payload: response,
@@ -28,7 +28,7 @@ export const dateCreate = (date) => async (dispatch) => {
   }
 };
 
-export const dateSetup = (date) => (dispatch) => {
+export const dateSetup = date => dispatch => {
   dispatch({
     type: 'DATE_SETUP',
     payload: date,

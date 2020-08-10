@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { destinationsLoad } from '../actions/DestinationActions';
 import Spinner from 'react-bootstrap/Spinner';
+import { destinationsLoad } from '../actions/DestinationActions';
 import ImagesContainer from '../containers/ImagesContainer';
 
 const Home = () => {
-  const destinationsState = useSelector((state) => state.destinations);
+  const destinationsState = useSelector(state => state.destinations);
   const dispatch = useDispatch();
   const [imagesToDisplay, setImagesToDisplay] = useState([]);
 
@@ -15,18 +15,16 @@ const Home = () => {
 
   useEffect(() => {
     if (
-      !destinationsState.isFetching &&
-      destinationsState.destinations.length > 1 &&
-      imagesToDisplay.length < destinationsState.destinations.length
+      !destinationsState.isFetching
+      && destinationsState.destinations.length > 1
+      && imagesToDisplay.length < destinationsState.destinations.length
     ) {
-      destinationsState.destinations.forEach((destination) => {
-        setImagesToDisplay((prevState) =>
-          prevState.concat({
-            place: destination.attributes.place,
-            description: destination.attributes.country_description,
-            image: destination.images[0].attributes.image_url,
-          })
-        );
+      destinationsState.destinations.forEach(destination => {
+        setImagesToDisplay(prevState => prevState.concat({
+          place: destination.attributes.place,
+          description: destination.attributes.country_description,
+          image: destination.images[0].attributes.image_url,
+        }));
       });
     }
   }, [destinationsState.isFetching]);

@@ -1,23 +1,24 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 import { dateCreate, dateSetup } from '../actions/DateActions';
 import { userLoggedIn } from '../actions/UserActions';
 
 const Dates = ({ match }) => {
   const { country, city } = match.params;
 
-  const userState = useSelector((state) => state.user);
-  const destinationsState = useSelector((state) => state.destinations);
-  const datesState = useSelector((state) => state.dates);
+  const userState = useSelector(state => state.user);
+  const destinationsState = useSelector(state => state.destinations);
+  const datesState = useSelector(state => state.dates);
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (country) {
       dispatch(
         dateSetup({
-          country: country,
-          cities: [{ attributes: { city: city } }],
-        })
+          country,
+          cities: [{ attributes: { city } }],
+        }),
       );
     } else {
       dispatch(
@@ -31,23 +32,23 @@ const Dates = ({ match }) => {
               },
             },
           ],
-        })
+        }),
       );
     }
   }, []);
 
-  const setDestination = (e) => {
+  const setDestination = e => {
     e.preventDefault();
     e.persist();
 
-    const formValues = [...e.target].map((input) => input.value);
+    const formValues = [...e.target].map(input => input.value);
 
     const destination = destinationsState.destinations.filter(
-      (destination) => destination.attributes.place === formValues[1]
+      destination => destination.attributes.place === formValues[1],
     );
 
     const image = destination[0].images.filter(
-      (selectedCity) => selectedCity.attributes.city === formValues[2]
+      selectedCity => selectedCity.attributes.city === formValues[2],
     );
 
     const imageId = image[0].id;
@@ -63,7 +64,7 @@ const Dates = ({ match }) => {
         end_date: formValues[4],
         country: formValues[1],
         city: formValues[2],
-      })
+      }),
     );
   };
 
@@ -73,35 +74,44 @@ const Dates = ({ match }) => {
     }
   }, [datesState.status]);
 
-  const updateCountry = (e) => {
+  const updateCountry = e => {
     const { value } = e.target;
 
     dispatch(
       dateSetup({
         country: value,
         cities: destinationsState.destinations.filter(
-          (destination) => destination.attributes.place === value
+          destination => destination.attributes.place === value,
         )[0].images,
         start_date: datesState.date.start_date,
         end_date: datesState.date.end_date,
-      })
+      }),
     );
   };
 
   return (
     <div className="Dates col-12 col-md-10 d-flex flex-column align-items-center justify-content-center">
       <div className="schedule-trips-container">
-        {userState.vacationDates.map((trip) => (
+        {userState.vacationDates.map(trip => (
           <div
             className="scheduled-trip d-flex w-80 flex-column justify-content-center"
             key={trip.id}
           >
             <p>
-              You have a trip scheduled from {trip.start_date} to{' '}
-              {trip.end_date} to:
+              You have a trip scheduled from
+              {' '}
+              {trip.start_date}
+              {' '}
+              to
+              {' '}
+              {trip.end_date}
+              {' '}
+              to:
             </p>
             <h5>
-              {trip.city}, {trip.country}
+              {trip.city}
+              ,
+              {trip.country}
             </h5>
           </div>
         ))}
@@ -115,7 +125,7 @@ const Dates = ({ match }) => {
         onSubmit={setDestination}
       >
         <div className="form-group">
-          <label>Your name</label>
+          <p>Your name</p>
           <input type="text" value={userState.user.name} readOnly />
         </div>
 
@@ -126,7 +136,7 @@ const Dates = ({ match }) => {
             className="country"
             value={datesState.date.country}
           >
-            {destinationsState.destinations.map((destination) => (
+            {destinationsState.destinations.map(destination => (
               <option
                 value={destination.attributes.place}
                 key={destination.attributes.place}
@@ -137,7 +147,7 @@ const Dates = ({ match }) => {
           </select>
 
           <select name="city" className="country">
-            {datesState.date.cities.map((destination) => (
+            {datesState.date.cities.map(destination => (
               <option
                 value={destination.attributes.city}
                 key={destination.attributes.city}
@@ -149,21 +159,28 @@ const Dates = ({ match }) => {
         </div>
 
         <div className="form-group">
-          <label>What is your departure date?</label>
+          <p>What is your departure date?</p>
           <input type="date" required />
         </div>
 
         <div className="form-group">
-          <label>What is your return date?</label>
+          <p>What is your return date?</p>
           <input type="date" required />
         </div>
 
         <button className="schedule-button" type="submit">
-          <i className="fas fa-calendar-alt"></i> Schedule Your Trip!
+          <i className="fas fa-calendar-alt" />
+          {' '}
+          Schedule Your Trip!
         </button>
       </form>
     </div>
   );
+};
+
+Dates.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
+  match: PropTypes.object.isRequired,
 };
 
 export default Dates;

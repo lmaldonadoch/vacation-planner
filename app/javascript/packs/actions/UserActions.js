@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const userLoggedIn = () => async (dispatch) => {
+export const userLoggedIn = () => async dispatch => {
   try {
     dispatch({
       type: 'FETCHING_USER',
@@ -22,7 +22,7 @@ export const userLoggedIn = () => async (dispatch) => {
   }
 };
 
-export const userLogout = () => async (dispatch) => {
+export const userLogout = () => async dispatch => {
   try {
     dispatch({
       type: 'DESTROYING_SESSION',
@@ -44,7 +44,7 @@ export const userLogout = () => async (dispatch) => {
   }
 };
 
-export const userLogin = (user) => async (dispatch) => {
+export const userLogin = user => async dispatch => {
   try {
     dispatch({
       type: 'LOGGING_IN_USER',
@@ -59,14 +59,12 @@ export const userLogin = (user) => async (dispatch) => {
             password: user.password,
           },
         },
-        { withCredentials: true }
+        { withCredentials: true },
       )
-      .then((response) =>
-        dispatch({
-          type: 'USER_LOGGED_IN',
-          payload: response.data,
-        })
-      );
+      .then(response => dispatch({
+        type: 'USER_LOGGED_IN',
+        payload: response.data,
+      }));
   } catch (error) {
     dispatch({
       type: 'ERROR_SIGNING_USER',
@@ -75,7 +73,7 @@ export const userLogin = (user) => async (dispatch) => {
   }
 };
 
-export const userRegistration = (user) => async (dispatch) => {
+export const userRegistration = user => async dispatch => {
   try {
     dispatch({
       type: 'REGISTERING_USER',
@@ -92,14 +90,12 @@ export const userRegistration = (user) => async (dispatch) => {
             password_confirmation: user.password_confirmation,
           },
         },
-        { withCredentials: true }
+        { withCredentials: true },
       )
-      .then((response) =>
-        dispatch({
-          type: 'USER_REGISTERED',
-          payload: response,
-        })
-      );
+      .then(response => dispatch({
+        type: 'USER_REGISTERED',
+        payload: response,
+      }));
   } catch (error) {
     dispatch({
       type: 'REGISTRATION_ERROR',
