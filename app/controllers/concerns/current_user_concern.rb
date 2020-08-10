@@ -6,6 +6,7 @@ module CurrentUserConcern
   end
 
   def set_current_user
+    session["init"] = true
     p '*' * 20
     p '*' * 20
     p '*' * 20
