@@ -11,6 +11,19 @@ module API
         if user
           session["init"] = true
           session[:user_id] = user.id
+          p '*' * 20
+          p '*' * 20
+          p '*' * 20
+          p '*' * 20
+          p '*' * 20
+          p 'SET CURRENT USER CONTROLLER'
+          p session
+          p session[:user_id]
+          p '*' * 20
+          p '*' * 20
+          p '*' * 20
+          p '*' * 20
+          p '*' * 20
           render json: {
             status: :created,
             logged_in: true,
