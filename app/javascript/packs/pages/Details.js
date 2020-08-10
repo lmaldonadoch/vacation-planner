@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import Carousel from 'react-bootstrap/Carousel';
-import { useLocation } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
+
 import Spinner from 'react-bootstrap/Spinner';
 
 const Details = ({ match }) => {
   // Carousel
   const [index, setIndex] = useState(0);
-  const handleSelect = (selectedIndex, e) => {
+  const handleSelect = selectedIndex => {
     setIndex(selectedIndex);
   };
 
@@ -16,18 +16,16 @@ const Details = ({ match }) => {
   const country = match
     ? match.params.country
     : location.pathname.replace(/^\/+/g, '');
-  const destinationsState = useSelector((state) => state.destinations);
+  const destinationsState = useSelector(state => state.destinations);
 
   const [imagesToDisplay, setImagesToDisplay] = useState([]);
 
   useEffect(() => {
-    setImagesToDisplay((prevState) =>
-      prevState.concat(
-        destinationsState.destinations.filter(
-          (destination) => destination.attributes.place === country
-        )
-      )
-    );
+    setImagesToDisplay(prevState => prevState.concat(
+      destinationsState.destinations.filter(
+        destination => destination.attributes.place === country,
+      ),
+    ));
   }, []);
 
   if (imagesToDisplay[0]) {
@@ -39,8 +37,8 @@ const Details = ({ match }) => {
         </div>
         <div className="d-flex flex-column flex-md-row align-items-center">
           <Link to="/" className="back-link">
-            <button className="left">
-              <i className="fas fa-caret-left"></i>
+            <button className="left" type="button">
+              <i className="fas fa-caret-left" />
             </button>
           </Link>
           <Carousel
@@ -48,14 +46,14 @@ const Details = ({ match }) => {
             onSelect={handleSelect}
             interval={20000}
           >
-            {imagesToDisplay[0].images.map((image) => (
+            {imagesToDisplay[0].images.map(image => (
               <Carousel.Item key={image.id}>
                 <img
                   className="d-block w-100"
                   src={image.attributes.image_url}
                   alt={image.id}
                 />
-                <Carousel.Caption></Carousel.Caption>
+                <Carousel.Caption />
               </Carousel.Item>
             ))}
           </Carousel>
@@ -70,8 +68,10 @@ const Details = ({ match }) => {
               to={`/dates/${country}/${imagesToDisplay[0].images[index].attributes.city}`}
               className="dates-button"
             >
-              <button className="schedule-button">
-                <i className="fas fa-calendar-alt"></i> Schedule Your Trip!
+              <button className="schedule-button" type="button">
+                <i className="fas fa-calendar-alt" />
+                {' '}
+                Schedule Your Trip!
               </button>
             </Link>
           </div>
@@ -87,6 +87,11 @@ const Details = ({ match }) => {
       </Spinner>
     </div>
   );
+};
+
+Details.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
+  match: PropTypes.object.isRequired,
 };
 
 export default Details;
