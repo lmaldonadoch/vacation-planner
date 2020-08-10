@@ -26,13 +26,19 @@ body,
   overflow-x: hidden;
 }
 
+nav a {
+  color: #525252;
+  font-weight: 900;
+  font-size: 20px;
+  text-decoration: none !important;
+}
+
 .Image a {
   width: 100%;
   color: black;
   text-align: center;
 }
 
-nav a,
 nav a:hover,
 nav button {
   color: #525252;
