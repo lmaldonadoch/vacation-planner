@@ -33,6 +33,11 @@ nav {
   border-right: #f1f1f1 solid 2px;
   padding-right: 0 !important;
 
+  .logo {
+    background: url(logo.png) no-repeat center center;
+    background-size: cover;
+  }
+
   a,
   a:hover {
     color: #525252;
