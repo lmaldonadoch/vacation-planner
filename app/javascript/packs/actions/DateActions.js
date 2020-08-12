@@ -1,9 +1,10 @@
 import axios from 'axios';
+import types from './types'
 
 export const dateCreate = date => async dispatch => {
   try {
     dispatch({
-      type: 'CREATING_DATE',
+      type: types.CREATING_DATE,
     });
 
     axios
@@ -16,13 +17,13 @@ export const dateCreate = date => async dispatch => {
       )
       .then(response => {
         dispatch({
-          type: 'DATE_CREATED',
+          type: types.DATE_CREATED,
           payload: response,
         });
       });
   } catch (error) {
     dispatch({
-      type: 'ERROR_SETTING_DATE',
+      type: types.ERROR_SETTING_DATE,
       payload: error,
     });
   }
@@ -30,7 +31,7 @@ export const dateCreate = date => async dispatch => {
 
 export const dateSetup = date => dispatch => {
   dispatch({
-    type: 'DATE_SETUP',
+    type: types.DATE_SETUP,
     payload: date,
   });
 };

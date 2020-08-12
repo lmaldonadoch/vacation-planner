@@ -1,9 +1,10 @@
 import axios from 'axios';
+import types from './types'
 
 export const destinationsLoad = () => async dispatch => {
   try {
     dispatch({
-      type: 'FETCHING_DESTINATIONS',
+      type: types.FETCHING_DESTINATIONS,
     });
 
     axios.get('/api/v1/destinations.json').then(response => {
@@ -18,13 +19,13 @@ export const destinationsLoad = () => async dispatch => {
         });
       });
       dispatch({
-        type: 'RECEIVED_DESTINATIONS',
+        type: types.RECEIVED_DESTINATIONS,
         payload: places,
       });
     });
   } catch (error) {
     dispatch({
-      type: 'ERROR_FETCHING_DESTINATIONS',
+      type: types.ERROR_FETCHING_DESTINATIONS,
       payload: error,
     });
   }
@@ -33,7 +34,7 @@ export const destinationsLoad = () => async dispatch => {
 export const cityCreate = city => async dispatch => {
   try {
     dispatch({
-      type: 'CREATING_CITY',
+      type: types.CREATING_CITY,
     });
 
     axios
@@ -46,13 +47,13 @@ export const cityCreate = city => async dispatch => {
       )
       .then(response => {
         dispatch({
-          type: 'CITY_CREATED',
+          type: types.CITY_CREATED,
           payload: response.data,
         });
       });
   } catch (error) {
     dispatch({
-      type: 'ERROR_CREATING_CITY',
+      type: types.ERROR_CREATING_CITY,
       payload: error,
     });
   }
@@ -61,7 +62,7 @@ export const cityCreate = city => async dispatch => {
 export const countryCreate = country => async dispatch => {
   try {
     dispatch({
-      type: 'CREATING_COUNTRY',
+      type: types.CREATING_COUNTRY,
     });
 
     axios
@@ -74,13 +75,13 @@ export const countryCreate = country => async dispatch => {
       )
       .then(response => {
         dispatch({
-          type: 'COUNTRY_CREATED',
+          type: types.COUNTRY_CREATED,
           payload: response.data.data,
         });
       });
   } catch (error) {
     dispatch({
-      type: 'ERROR_CREATING_COUNTRY',
+      type: types.ERROR_CREATING_COUNTRY,
       payload: error,
     });
   }
