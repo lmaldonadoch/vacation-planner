@@ -1,3 +1,5 @@
+import types from '../actions/types'
+
 const initialState = {
   isFetching: false,
   date: {
@@ -11,24 +13,24 @@ const dateReducer = (state = initialState, action) => {
   const { type, payload } = action;
 
   switch (type) {
-    case 'CREATING_DATE':
+    case types.CREATING_DATE:
       return {
         ...state,
         isFetching: true,
       };
-    case 'DATE_CREATED':
+    case types.DATE_CREATED:
       return {
         ...state,
         isFetching: false,
         status: 'created',
       };
-    case 'ERROR_SETTING_DATE':
+    case types.ERROR_SETTING_DATE:
       return {
         ...state,
         isFetching: false,
       };
 
-    case 'DATE_SETUP':
+    case types.DATE_SETUP:
       return {
         ...state,
         date: payload,

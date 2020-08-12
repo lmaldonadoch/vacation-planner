@@ -1,22 +1,21 @@
 import axios from 'axios';
+import types from './types'
 
 export const userLoggedIn = () => async dispatch => {
   try {
     dispatch({
-      type: 'FETCHING_USER',
+      type: types.FETCHING_USER,
     });
 
-    const response = await fetch('/api/v1/logged_in');
-
-    const info = await response.json();
-
-    await dispatch({
-      type: 'RECEIVED_USER',
-      payload: info,
-    });
+    axios.get('/api/v1/logged_in').then(response => {
+      dispatch({
+        type: types.RECEIVED_USER,
+        payload: response.data,
+      });
+    })
   } catch (error) {
     dispatch({
-      type: 'ERROR_FETCHING_USER',
+      type: types.ERROR_FETCHING_USER,
       payload: error,
     });
   }
@@ -25,20 +24,18 @@ export const userLoggedIn = () => async dispatch => {
 export const userLogout = () => async dispatch => {
   try {
     dispatch({
-      type: 'DESTROYING_SESSION',
+      type: types.DESTROYING_SESSION,
     });
 
-    const response = await fetch('/api/v1/logout', { method: 'DELETE' });
-
-    const info = await response.json();
-
-    await dispatch({
-      type: 'SESSION_DESTROYED',
-      payload: info,
+    axios.delete('/api/v1/logout').then(response => {
+      dispatch({
+        type: types.SESSION_DESTROYED,
+        payload: response.data,
+      });
     });
   } catch (error) {
     dispatch({
-      type: 'ERROR_DESTROYING_SESSION',
+      type: types.ERROR_DESTROYING_SESSION,
       payload: error,
     });
   }
@@ -47,7 +44,7 @@ export const userLogout = () => async dispatch => {
 export const userLogin = user => async dispatch => {
   try {
     dispatch({
-      type: 'LOGGING_IN_USER',
+      type: types.LOGGING_IN_USER,
     });
 
     axios
@@ -62,12 +59,12 @@ export const userLogin = user => async dispatch => {
         { withCredentials: true },
       )
       .then(response => dispatch({
-        type: 'USER_LOGGED_IN',
+        type: types.USER_LOGGED_IN,
         payload: response.data,
       }));
   } catch (error) {
     dispatch({
-      type: 'ERROR_SIGNING_USER',
+      type: types.ERROR_SIGNING_USER,
       payload: error,
     });
   }
@@ -76,7 +73,7 @@ export const userLogin = user => async dispatch => {
 export const userRegistration = user => async dispatch => {
   try {
     dispatch({
-      type: 'REGISTERING_USER',
+      type: types.REGISTERING_USER,
     });
 
     axios
@@ -93,12 +90,12 @@ export const userRegistration = user => async dispatch => {
         { withCredentials: true },
       )
       .then(response => dispatch({
-        type: 'USER_REGISTERED',
+        type: types.USER_REGISTERED,
         payload: response,
       }));
   } catch (error) {
     dispatch({
-      type: 'REGISTRATION_ERROR',
+      type: types.REGISTRATION_ERROR,
       payload: error,
     });
   }

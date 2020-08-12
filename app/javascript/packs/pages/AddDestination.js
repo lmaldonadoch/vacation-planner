@@ -34,7 +34,7 @@ const AddDestination = () => {
         </button>
       </div>
 
-      <AddForm form={form} />
+      <AddForm formType={form} />
     </div>
   );
 };

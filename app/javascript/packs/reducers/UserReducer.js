@@ -1,3 +1,5 @@
+import types from '../actions/types'
+
 const initialState = {
   user: {},
   vacationDates: [{}],
@@ -10,17 +12,17 @@ const userReducer = (state = initialState, action) => {
   const { type, payload } = action;
 
   switch (type) {
-    case 'FETCHING_USER':
+    case types.FETCHING_USER:
       return {
         ...state,
         isFetching: true,
       };
-    case 'ERROR_FETCHING_USER':
+    case types.ERROR_FETCHING_USER:
       return {
         ...state,
         isFetching: false,
       };
-    case 'RECEIVED_USER':
+    case types.RECEIVED_USER:
       return {
         ...state,
         isFetching: false,
@@ -29,25 +31,25 @@ const userReducer = (state = initialState, action) => {
         vacationDates: payload.vacation_dates,
       };
 
-    case 'DESTROYING_SESSION':
+    case types.DESTROYING_SESSION:
       return {
         ...state,
         isFetching: true,
       };
-    case 'SESSION_DESTROYED':
+    case types.SESSION_DESTROYED:
       return initialState;
-    case 'ERROR_DESTROYING_SESSION':
+    case types.ERROR_DESTROYING_SESSION:
       return {
         ...state,
         isFetching: false,
       };
 
-    case 'LOGGING_IN_USER':
+    case types.LOGGING_IN_USER:
       return {
         ...state,
         isFetching: true,
       };
-    case 'USER_LOGGED_IN':
+    case types.USER_LOGGED_IN:
       return {
         ...state,
         isFetching: false,
@@ -55,18 +57,18 @@ const userReducer = (state = initialState, action) => {
         user: payload.user,
         vacationDates: payload.vacation_dates,
       };
-    case 'ERROR_SIGNING_USER':
+    case types.ERROR_SIGNING_USER:
       return {
         ...state,
         isFetching: false,
       };
 
-    case 'REGISTERING_USER':
+    case types.REGISTERING_USER:
       return {
         ...state,
         isFetching: true,
       };
-    case 'USER_REGISTERED':
+    case types.USER_REGISTERED:
       return {
         ...state,
         isFetching: false,
@@ -74,7 +76,7 @@ const userReducer = (state = initialState, action) => {
         user: payload.data.user,
         status: payload.data.status,
       };
-    case 'REGISTRATION_ERROR':
+    case types.REGISTRATION_ERROR:
       return {
         ...state,
         isFetching: false,

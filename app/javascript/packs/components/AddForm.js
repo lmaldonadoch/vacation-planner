@@ -8,7 +8,7 @@ import {
   countryCreate,
 } from '../actions/DestinationActions';
 
-const AddForm = ({ form }) => {
+const AddForm = ({ formType }) => {
   const destinationsState = useSelector(state => state.destinations);
   const dispatch = useDispatch();
   const history = useHistory();
@@ -74,8 +74,8 @@ const AddForm = ({ form }) => {
     }
   }, [destinationsState.status]);
 
-  if (!form) return <form />;
-  if (form === 'city') {
+  if (!formType) return <form />;
+  if (formType === 'city') {
     return (
       <form
         onSubmit={addCity}
@@ -125,11 +125,11 @@ const AddForm = ({ form }) => {
 };
 
 AddForm.propTypes = {
-  form: PropTypes.string,
+  formType: PropTypes.string,
 };
 
 AddForm.defaultProps = {
-  form: null,
+  formType: null,
 };
 
 export default AddForm;
