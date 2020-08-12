@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-const imagesContainer = props => {
+const Image = props => {
   const { place, image, description } = props;
   return (
     <div className="Image col-12 col-md-4 destination-card d-flex flex-column align-items-center">
@@ -21,4 +22,10 @@ const imagesContainer = props => {
   );
 };
 
-export default imagesContainer;
+Image.propTypes = {
+  place: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+};
+
+export default Image;
