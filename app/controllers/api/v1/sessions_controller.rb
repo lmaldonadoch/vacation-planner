@@ -23,17 +23,6 @@ module API
       end
 
       def logged_in
-        p '*' * 20
-        p '*' * 20
-        p '*' * 20
-        p '*' * 20
-        p '*' * 20
-        p @current_user
-        p '*' * 20
-        p '*' * 20
-        p '*' * 20
-        p '*' * 20
-        p '*' * 20
         if @current_user
           render json: {
             logged_in: true,

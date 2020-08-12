@@ -4,10 +4,7 @@ module API
       skip_before_action :verify_authenticity_token
       def create
         user = User.create!(
-          name: params['user']['name'],
-          email: params['user']['email'],
-          password: params['user']['password'],
-          password_confirmation: params['user']['password_confirmation']
+          regstration_params
         )
 
         if user
@@ -20,6 +17,12 @@ module API
         else
           render json: { status: 500 }
         end
+      end
+
+      private
+
+      def regstration_params
+        params.require(:user).permit(:name, :email, :password, :password_confirmation)
       end
     end
   end

@@ -4,16 +4,17 @@ module API
       skip_before_action :verify_authenticity_token
       include CurrentUserConcern
       before_action :validate_admin, only: %i[create update destroy]
+      before_action :set_destination, only: %i[show update destroy]
+      before_action :set_options, only: %i[index show update]
+
       def index
         destinations = Destination.all.includes(:images)
 
-        render json: DestinationSerializer.new(destinations, options).serialized_json
+        render json: DestinationSerializer.new(destinations, @options).serialized_json
       end
 
       def show
-        destination = Destination.find(params[:id]).includes(:images)
-
-        render json: DestinationSerializer.new(destination, options).serialized_json
+        render json: DestinationSerializer.new(@destination, @options).serialized_json
       end
 
       def create
@@ -27,20 +28,16 @@ module API
       end
 
       def update
-        destination = Destination.find(params[:id])
-
-        if destination.update(
+        if @destination.update(
           place: params['destination']['place']
         )
-          render json: DestinationSerializer.new(destination, options).serialized_json
+          render json: DestinationSerializer.new(@destination, @options).serialized_json
         else
           render json: { status: 500 }
         end
       end
 
       def destroy
-        destination = Destination.find(params[:id])
-
         if destination.destroy
           render json: { status: 'destroyed' }
         else
@@ -58,8 +55,13 @@ module API
         params.require(:destination).permit(:place, :country_description)
       end
 
-      def options
+      def set_options
         @options = { include: [:images] }
+      end
+
+      def set_destination
+        p 'setting destination'
+        @destination ||= Destination.find(params[:id]).includes(:images)
       end
     end
   end

@@ -40,6 +40,10 @@ RSpec.configure do |config|
     DatabaseCleaner.start
   end
 
+  config.before(:example, exceptions: :catch) do
+    allow(Rails.application.config.action_dispatch).to receive(:show_exceptions) { true }
+  end
+
   config.after(:each) do
     DatabaseCleaner.clean
   end
