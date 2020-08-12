@@ -1,5 +1,6 @@
 import React, { useState, useLayoutEffect } from 'react';
 import Image from '../components/Image';
+import PropTypes from 'prop-types';
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-return-assign */
 
@@ -78,6 +79,10 @@ const imagesContainer = props => {
       </div>
     </div>
   );
+};
+
+imagesContainer.propTypes = {
+  images: PropTypes.array.isRequired,
 };
 
 export default imagesContainer;
