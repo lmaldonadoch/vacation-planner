@@ -13,6 +13,7 @@ const Dates = ({ match }) => {
   const dispatch = useDispatch();
 
   const [error, setError] = useState(null)
+  const [page, setPage] = useState(0);
 
   useEffect(() => {
     if (country) {
@@ -99,32 +100,58 @@ const Dates = ({ match }) => {
     );
   };
 
+  const decrementPage = () => {
+    if (page > 0) setPage(prevState => (prevState -= 1));
+  };
+
+  const incrementPage = () => {
+    if ((page + 1) * 5 < userState.vacationDates.length) setPage(prevState => (prevState += 1));
+  };
+
   return (
     <div className="Dates col-12 col-md-10 d-flex flex-column align-items-center justify-content-center">
-      <div className="schedule-trips-container">
-        {userState.vacationDates.map(trip => (
-          <div
-            className="scheduled-trip d-flex w-80 flex-column justify-content-center"
-            key={trip.id}
-          >
-            <p>
-              You have a trip scheduled from
-              {' '}
-              {trip.start_date}
-              {' '}
-              to
-              {' '}
-              {trip.end_date}
-              {' '}
-              to:
-            </p>
-            <h5>
-              {trip.city}
-              ,
-              {trip.country}
-            </h5>
-          </div>
-        ))}
+      <div className='trips-pagination d-flex align-items-center' >
+        <button
+          onClick={decrementPage}
+          id="decrement"
+          className="left"
+          type="button"
+        >
+          <i className="fas fa-caret-left" />
+        </button>
+        <div className="schedule-trips-container">
+          {userState.vacationDates.slice(page * 5, Math.min((page + 1) * 5, userState.vacationDates.length)).map(trip => (
+            <div
+              className="scheduled-trip d-flex w-80 flex-column justify-content-center"
+              key={trip.id}
+            >
+              <p>
+                You have a trip scheduled from
+                {' '}
+                {trip.start_date}
+                {' '}
+                to
+                {' '}
+                {trip.end_date}
+                {' '}
+                to:
+              </p>
+              <h5>
+                {trip.city}
+                ,
+                {trip.country}
+              </h5>
+            </div>
+          ))}
+        </div>
+        <button
+          onClick={incrementPage}
+          id="increment"
+          className="right"
+          type="button"
+        >
+          <i className="fas fa-caret-right" />
+        </button>
       </div>
       <div className="title">
         <h2>Schedule your trip!</h2>
