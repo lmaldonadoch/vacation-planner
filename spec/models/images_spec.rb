@@ -1,4 +1,5 @@
 require 'rails_helper'
+# rubocop:disable Layout/LineLength
 
 RSpec.describe Image, type: :model do
   describe '#Images' do
@@ -36,4 +37,5 @@ RSpec.describe Image, type: :model do
       expect(image.errors[:city_description]).to_not include("can't be blank")
     end
   end
+  # rubocop:enable Layout/LineLength
 end

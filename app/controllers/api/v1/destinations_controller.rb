@@ -4,7 +4,7 @@ module API
       skip_before_action :verify_authenticity_token
       include CurrentUserConcern
       before_action :validate_admin, only: %i[create update destroy]
-      before_action :set_destination, only: %i[show update destroy]
+      before_action :destination, only: %i[show update destroy]
       before_action :set_options, only: %i[index show update]
 
       def index
@@ -59,8 +59,7 @@ module API
         @options = { include: [:images] }
       end
 
-      def set_destination
-        p 'setting destination'
+      def destination
         @destination ||= Destination.find(params[:id]).includes(:images)
       end
     end

@@ -4,7 +4,7 @@ module API
       skip_before_action :verify_authenticity_token
       def create
         user = User.create!(
-          regstration_params
+          user_params
         )
 
         if user
@@ -21,7 +21,7 @@ module API
 
       private
 
-      def regstration_params
+      def user_params
         params.require(:user).permit(:name, :email, :password, :password_confirmation)
       end
     end
