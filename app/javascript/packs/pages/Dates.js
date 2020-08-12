@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-import { dateCreate, dateSetup } from '../actions/DateActions';
+import { dateCreate, dateSetup, dateStateReset } from '../actions/DateActions';
 import { userLoggedIn } from '../actions/UserActions';
 
 const Dates = ({ match }) => {
@@ -80,6 +80,7 @@ const Dates = ({ match }) => {
   useEffect(() => {
     if (datesState.status === 'created') {
       dispatch(userLoggedIn());
+      dispatch(dateStateReset());
     }
   }, [datesState.status]);
 

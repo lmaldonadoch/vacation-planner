@@ -36,6 +36,12 @@ const dateReducer = (state = initialState, action) => {
         date: payload,
       };
 
+    case types.DATE_STATE_RESET:
+      return {
+        ...state,
+        status: '',
+      }
+
     default:
       return {
         ...state,

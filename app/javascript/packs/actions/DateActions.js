@@ -35,3 +35,9 @@ export const dateSetup = date => dispatch => {
     payload: date,
   });
 };
+
+export const dateStateReset = () => dispatch => {
+  dispatch({
+    type: types.DATE_STATE_RESET,
+  });
+};
