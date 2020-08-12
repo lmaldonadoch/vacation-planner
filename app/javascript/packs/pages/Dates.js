@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { dateCreate, dateSetup } from '../actions/DateActions';
@@ -11,6 +11,8 @@ const Dates = ({ match }) => {
   const destinationsState = useSelector(state => state.destinations);
   const datesState = useSelector(state => state.dates);
   const dispatch = useDispatch();
+
+  const [error, setError] = useState(null)
 
   useEffect(() => {
     if (country) {
@@ -43,6 +45,11 @@ const Dates = ({ match }) => {
 
     const formValues = [...e.target].map(input => input.value);
 
+    if (formValues[4] < formValues[3]) {
+      setError('There must be a mistake, unless your trip is going to be to the past, your return date should be after your departure date');
+      return false;
+    }
+
     const destination = destinationsState.destinations.filter(
       destination => destination.attributes.place === formValues[1],
     );
@@ -66,6 +73,8 @@ const Dates = ({ match }) => {
         city: formValues[2],
       }),
     );
+
+    setError(null);
   };
 
   useEffect(() => {
@@ -119,6 +128,7 @@ const Dates = ({ match }) => {
       <div className="title">
         <h2>Schedule your trip!</h2>
         <p>Select the Country and City/Destination you would like to visit</p>
+        <p className='alert'>{error}</p>
       </div>
       <form
         className="schedule-date d-flex flex-column"
