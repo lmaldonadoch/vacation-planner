@@ -4,6 +4,7 @@ require 'rails_helper'
 RSpec.describe 'Destinations', type: :request do
   let(:d1) { Destination.create(place: 'Mexico', country_description: "Mexico is well known for its turquoise beaches, colonial cities, and warm people. Don't miss the chance to visit this beautiful country.") }
   let(:d2) { Destination.create(place: 'Mexico2', country_description: "Mexico is well known for its turquoise beaches, colonial cities, and warm people. Don't miss the chance to visit this beautiful country.") }
+  let(:u) {User.create(name: 'Admin', email: 'admin@vacationplanner.com', password: '123456', password_confirmation: '123456', admin: true)}
   describe '#Destinations' do
     it 'gets destinations' do
       get '/api/v1/destinations'
@@ -19,12 +20,18 @@ RSpec.describe 'Destinations', type: :request do
     end
 
     it 'creates a destination' do
+      u
+      post '/api/v1/sessions', params: { user: { email: 'admin@vacationplanner.com', password: '123456' } }
+
       post '/api/v1/destinations', params: { destination: { place: 'new place', country_description: 'some awesome description' } }
 
       expect(response).to be_successful
     end
 
     it 'stores the new destination' do
+      u
+      post '/api/v1/sessions', params: { user: { email: 'admin@vacationplanner.com', password: '123456' } }
+      
       post '/api/v1/destinations', params: { destination: { place: 'new place', country_description: 'some awesome description' } }
 
       expect(response.body).to include('new place')

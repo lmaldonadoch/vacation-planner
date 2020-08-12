@@ -1,18 +1,18 @@
 example_id                                       | status | run_time        |
 ------------------------------------------------ | ------ | --------------- |
-./spec/controllers/destinations_spec.rb[1:1:1]   | passed | 0.02094 seconds |
-./spec/controllers/destinations_spec.rb[1:1:2]   | passed | 0.17085 seconds |
-./spec/controllers/destinations_spec.rb[1:1:3]   | passed | 0.03546 seconds |
-./spec/controllers/destinations_spec.rb[1:1:4]   | passed | 0.05758 seconds |
-./spec/controllers/images_spec.rb[1:1:1]         | passed | 0.04735 seconds |
-./spec/controllers/images_spec.rb[1:1:2]         | passed | 0.04318 seconds |
-./spec/controllers/images_spec.rb[1:1:3]         | passed | 0.43169 seconds |
-./spec/controllers/sessions_spec.rb[1:1:1]       | passed | 0.02067 seconds |
-./spec/controllers/sessions_spec.rb[1:1:2]       | passed | 0.04967 seconds |
-./spec/controllers/sessions_spec.rb[1:1:3]       | passed | 0.27231 seconds |
-./spec/controllers/users_spec.rb[1:1:1]          | passed | 0.0335 seconds  |
-./spec/controllers/users_spec.rb[1:1:2]          | passed | 0.05071 seconds |
-./spec/controllers/users_spec.rb[1:1:3]          | passed | 0.08378 seconds |
-./spec/controllers/vacation_dates_spec.rb[1:1:1] | passed | 0.10528 seconds |
-./spec/controllers/vacation_dates_spec.rb[1:1:2] | passed | 0.08484 seconds |
-./spec/controllers/vacation_dates_spec.rb[1:1:3] | passed | 0.33767 seconds |
+./spec/controllers/destinations_spec.rb[1:1:1]   | passed | 0.09285 seconds |
+./spec/controllers/destinations_spec.rb[1:1:2]   | passed | 0.0421 seconds  |
+./spec/controllers/destinations_spec.rb[1:1:3]   | passed | 0.06867 seconds |
+./spec/controllers/destinations_spec.rb[1:1:4]   | passed | 0.15475 seconds |
+./spec/controllers/images_spec.rb[1:1:1]         | passed | 0.06738 seconds |
+./spec/controllers/images_spec.rb[1:1:2]         | passed | 0.23243 seconds |
+./spec/controllers/images_spec.rb[1:1:3]         | passed | 0.09733 seconds |
+./spec/controllers/sessions_spec.rb[1:1:1]       | passed | 0.01389 seconds |
+./spec/controllers/sessions_spec.rb[1:1:2]       | passed | 0.04289 seconds |
+./spec/controllers/sessions_spec.rb[1:1:3]       | passed | 0.18232 seconds |
+./spec/controllers/users_spec.rb[1:1:1]          | passed | 0.0893 seconds  |
+./spec/controllers/users_spec.rb[1:1:2]          | passed | 0.01935 seconds |
+./spec/controllers/users_spec.rb[1:1:3]          | passed | 0.02754 seconds |
+./spec/controllers/vacation_dates_spec.rb[1:1:1] | passed | 0.26247 seconds |
+./spec/controllers/vacation_dates_spec.rb[1:1:2] | passed | 0.06653 seconds |
+./spec/controllers/vacation_dates_spec.rb[1:1:3] | passed | 0.08787 seconds |
