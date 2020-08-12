@@ -35,7 +35,7 @@ RSpec.describe 'Images', type: :request do
 
       post '/api/v1/images', params: { image: { city: 'new place', city_description: 'some awesome description', image_url: 'image url', destination_id: d1.id } }
 
-      delete "/api/v1/images/#{d1.id}"
+      delete "/api/v1/images/#{Image.last.id}"
       expect(response).to be_successful
     end
   end
