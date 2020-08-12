@@ -30,7 +30,7 @@ const Nav = () => {
 
   useEffect(() => {
     dispatch(userLoggedIn());
-  }, [userState.loggedIn]);
+  }, [userState.loggedIn, userState.loggedIn]);
 
   const logout = () => {
     dispatch(userLogout());

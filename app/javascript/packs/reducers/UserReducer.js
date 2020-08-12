@@ -3,6 +3,7 @@ const initialState = {
   vacationDates: [{}],
   isFetching: false,
   loggedIn: false,
+  status: null,
 };
 
 const userReducer = (state = initialState, action) => {
@@ -69,8 +70,9 @@ const userReducer = (state = initialState, action) => {
       return {
         ...state,
         isFetching: false,
-        loggedIn: true,
+        loggedIn: payload.data.logged_in,
         user: payload.data.user,
+        status: payload.data.status,
       };
     case 'REGISTRATION_ERROR':
       return {

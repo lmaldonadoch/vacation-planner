@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { userRegistration } from '../actions/UserActions';
@@ -7,6 +7,8 @@ const Register = () => {
   const dispatch = useDispatch();
   const userState = useSelector(state => state.user);
   const history = useHistory();
+
+  const [error, setError] = useState(null);
 
   const signup = e => {
     e.preventDefault();
@@ -20,13 +22,15 @@ const Register = () => {
   };
 
   useEffect(() => {
-    if (userState.loggedIn) history.push('/');
-  }, [userState.loggedIn]);
+    if (userState.loggedIn && userState.status !== 'error') history.push('/');
+    else if (userState.status === 'error') setError('Ups! It seems like that email is already taken, please provide another one.');
+  }, [userState.loggedIn, userState.status]);
 
   return (
     <div className="col-12 col-md-10 d-flex flex-column justify-content-center align-items-center w-100">
       <div className="title">
         <h2>Create your account</h2>
+        <p className='alert'>{error}</p>
       </div>
       <form
         onSubmit={signup}
