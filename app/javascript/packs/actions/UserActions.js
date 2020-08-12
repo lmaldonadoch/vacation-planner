@@ -1,5 +1,5 @@
 import axios from 'axios';
-import types from './types'
+import types from './types';
 
 export const userLoggedIn = () => async dispatch => {
   try {
@@ -12,7 +12,7 @@ export const userLoggedIn = () => async dispatch => {
         type: types.RECEIVED_USER,
         payload: response.data,
       });
-    })
+    });
   } catch (error) {
     dispatch({
       type: types.ERROR_FETCHING_USER,

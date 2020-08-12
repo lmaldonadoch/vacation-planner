@@ -1,5 +1,5 @@
 import axios from 'axios';
-import types from './types'
+import types from './types';
 
 export const destinationsLoad = () => async dispatch => {
   try {

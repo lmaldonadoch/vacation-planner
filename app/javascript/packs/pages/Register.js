@@ -30,7 +30,7 @@ const Register = () => {
     <div className="col-12 col-md-10 d-flex flex-column justify-content-center align-items-center w-100">
       <div className="title">
         <h2>Create your account</h2>
-        <p className='alert'>{error}</p>
+        <p className="alert">{error}</p>
       </div>
       <form
         onSubmit={signup}

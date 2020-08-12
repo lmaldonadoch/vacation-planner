@@ -10,14 +10,14 @@ module API
             status: 'error',
             user: {},
             vacation_dates: [],
-            logged_in: false,
+            logged_in: false
           }
         elsif user.save
           session[:user_id] = user.id
           render json: {
             user: user,
             vacation_dates: [],
-            logged_in: true,
+            logged_in: true
           }
         else
           render json: { status: 500 }

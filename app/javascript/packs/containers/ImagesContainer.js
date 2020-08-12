@@ -1,6 +1,6 @@
 import React, { useState, useLayoutEffect } from 'react';
-import Image from '../components/Image';
 import PropTypes from 'prop-types';
+import Image from '../components/Image';
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-return-assign */
 
@@ -82,6 +82,7 @@ const imagesContainer = props => {
 };
 
 imagesContainer.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
   images: PropTypes.array.isRequired,
 };
 

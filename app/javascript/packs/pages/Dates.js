@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { dateCreate, dateSetup, dateStateReset } from '../actions/DateActions';
 import { userLoggedIn } from '../actions/UserActions';
+/* eslint-disable no-param-reassign */
+/* eslint-disable no-return-assign */
 
 const Dates = ({ match }) => {
   const { country, city } = match.params;
@@ -12,7 +14,7 @@ const Dates = ({ match }) => {
   const datesState = useSelector(state => state.dates);
   const dispatch = useDispatch();
 
-  const [error, setError] = useState(null)
+  const [error, setError] = useState(null);
   const [page, setPage] = useState(0);
 
   useEffect(() => {
@@ -75,7 +77,7 @@ const Dates = ({ match }) => {
       }),
     );
 
-    setError(null);
+    return setError(null);
   };
 
   useEffect(() => {
@@ -110,7 +112,7 @@ const Dates = ({ match }) => {
 
   return (
     <div className="Dates col-12 col-md-10 d-flex flex-column align-items-center justify-content-center">
-      <div className='trips-pagination d-flex align-items-center' >
+      <div className="trips-pagination d-flex align-items-center">
         <button
           onClick={decrementPage}
           id="decrement"
@@ -120,29 +122,30 @@ const Dates = ({ match }) => {
           <i className="fas fa-caret-left" />
         </button>
         <div className="schedule-trips-container">
-          {userState.vacationDates.slice(page * 5, Math.min((page + 1) * 5, userState.vacationDates.length)).map(trip => (
-            <div
-              className="scheduled-trip d-flex w-80 flex-column justify-content-center"
-              key={trip.id}
-            >
-              <p>
-                You have a trip scheduled from
+          {userState.vacationDates.
+            slice(page * 5, Math.min((page + 1) * 5, userState.vacationDates.length)).map(trip => (
+              <div
+                className="scheduled-trip d-flex w-80 flex-column justify-content-center"
+                key={trip.id}
+              >
+                <p>
+                  You have a trip scheduled from
                 {' '}
-                {trip.start_date}
-                {' '}
+                  {trip.start_date}
+                  {' '}
                 to
                 {' '}
-                {trip.end_date}
-                {' '}
+                  {trip.end_date}
+                  {' '}
                 to:
               </p>
-              <h5>
-                {trip.city}
+                <h5>
+                  {trip.city}
                 ,
                 {trip.country}
-              </h5>
-            </div>
-          ))}
+                </h5>
+              </div>
+            ))}
         </div>
         <button
           onClick={incrementPage}
@@ -156,7 +159,7 @@ const Dates = ({ match }) => {
       <div className="title">
         <h2>Schedule your trip!</h2>
         <p>Select the Country and City/Destination you would like to visit</p>
-        <p className='alert'>{error}</p>
+        <p className="alert">{error}</p>
       </div>
       <form
         className="schedule-date d-flex flex-column"

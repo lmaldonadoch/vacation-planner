@@ -1,4 +1,4 @@
-import types from '../actions/types'
+import types from '../actions/types';
 
 const initialState = {
   isFetching: false,
@@ -40,7 +40,7 @@ const dateReducer = (state = initialState, action) => {
       return {
         ...state,
         status: '',
-      }
+      };
 
     default:
       return {

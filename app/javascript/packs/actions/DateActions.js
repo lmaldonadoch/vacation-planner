@@ -1,5 +1,5 @@
 import axios from 'axios';
-import types from './types'
+import types from './types';
 
 export const dateCreate = date => async dispatch => {
   try {
