@@ -38,7 +38,7 @@ module API
       end
 
       def destroy
-        if destination.destroy
+        if @destination.destroy
           render json: { status: 'destroyed' }
         else
           render json: { status: 500 }
