@@ -30,8 +30,8 @@ const Register = () => {
     else if (userState.status === 'error') {
       setError('Ups! It seems like that email is already taken, please provide another one.');
       alert.classList.remove('d-none');
-    };
-  }, [userState.loggedIn, userState.status])
+    }
+  }, [userState.loggedIn, userState.status]);
 
   return (
     <div className="col-12 col-md-10 d-flex flex-column justify-content-center align-items-center w-100">

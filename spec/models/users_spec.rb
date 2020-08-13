@@ -2,9 +2,8 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   describe '#Registration' do
-    let(:user) { User.create(name: 'test', email: 'test@test.com', password: '123', password_confirmation: '123') }
+    let(:user) { create(:user) }
     it 'doesnt take user without the name' do
-      user = User.new
       user.name = nil
       user.valid?
       expect(user.errors[:name]).to include("can't be blank")
@@ -15,7 +14,6 @@ RSpec.describe User, type: :model do
     end
 
     it 'doesnt take user without the email' do
-      user = User.new
       user.email = nil
       user.valid?
       expect(user.errors[:email]).to include("can't be blank")
@@ -27,12 +25,11 @@ RSpec.describe User, type: :model do
 
     it 'doesnt take user with duplicated email' do
       user
-      user2 = User.create(name: 'test', email: 'test@test.com', password: '123', password_confirmation: '123')
+      user2 = build(:user)
       expect(user2).to_not be_valid
     end
 
     it 'doesnt take user without the password' do
-      user = User.new
       user.password = nil
       user.valid?
       expect(user.errors[:password]).to include("can't be blank")
