@@ -10,6 +10,8 @@ const Register = () => {
 
   const [error, setError] = useState(null);
 
+  const alert = document.getElementById('alert');
+
   const signup = e => {
     e.preventDefault();
     const user = {
@@ -18,19 +20,24 @@ const Register = () => {
       password: e.target[2].value,
       password_confirmation: e.target[3].value,
     };
+    setError(null);
+    alert.classList.add('d-none');
     dispatch(userRegistration(user));
   };
 
   useEffect(() => {
     if (userState.loggedIn && userState.status !== 'error') history.push('/');
-    else if (userState.status === 'error') setError('Ups! It seems like that email is already taken, please provide another one.');
+    else if (userState.status === 'error') {
+      setError('Ups! It seems like that email is already taken, please provide another one.');
+      alert.classList.remove('d-none');
+    };
   }, [userState.loggedIn, userState.status]);
 
   return (
     <div className="col-12 col-md-10 d-flex flex-column justify-content-center align-items-center w-100">
       <div className="title">
         <h2>Create your account</h2>
-        <p className="alert">{error}</p>
+        <p className="alert d-none" id="alert">{error}</p>
       </div>
       <form
         onSubmit={signup}

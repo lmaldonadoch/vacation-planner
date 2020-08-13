@@ -53,9 +53,10 @@ const userReducer = (state = initialState, action) => {
       return {
         ...state,
         isFetching: false,
-        loggedIn: true,
+        loggedIn: payload.logged_in,
         user: payload.user,
         vacationDates: payload.vacation_dates,
+        status: payload.status,
       };
     case types.ERROR_SIGNING_USER:
       return {

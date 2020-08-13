@@ -17,6 +17,8 @@ const Dates = ({ match }) => {
   const [error, setError] = useState(null);
   const [page, setPage] = useState(0);
 
+  const alert = document.getElementById('alert');
+
   useEffect(() => {
     if (country) {
       dispatch(
@@ -50,7 +52,7 @@ const Dates = ({ match }) => {
 
     if (formValues[4] < formValues[3]) {
       setError('There must be a mistake, unless your trip is going to be to the past, your return date should be after your departure date');
-      return false;
+      return alert.classList.remove('d-none');
     }
 
     const destination = destinationsState.destinations.filter(
@@ -76,7 +78,7 @@ const Dates = ({ match }) => {
         city: formValues[2],
       }),
     );
-
+    alert.classList.add('d-none');
     return setError(null);
   };
 
@@ -122,27 +124,27 @@ const Dates = ({ match }) => {
           <i className="fas fa-caret-left" />
         </button>
         <div className="schedule-trips-container">
-          {userState.vacationDates.
-            slice(page * 5, Math.min((page + 1) * 5, userState.vacationDates.length)).map(trip => (
+          {userState.vacationDates
+            .slice(page * 5, Math.min((page + 1) * 5, userState.vacationDates.length)).map(trip => (
               <div
                 className="scheduled-trip d-flex w-80 flex-column justify-content-center"
                 key={trip.id}
               >
                 <p>
                   You have a trip scheduled from
-                {' '}
+                  {' '}
                   {trip.start_date}
                   {' '}
-                to
-                {' '}
+                  to
+                  {' '}
                   {trip.end_date}
                   {' '}
-                to:
-              </p>
+                  to:
+                </p>
                 <h5>
                   {trip.city}
-                ,
-                {trip.country}
+                  ,
+                  {trip.country}
                 </h5>
               </div>
             ))}
@@ -159,7 +161,7 @@ const Dates = ({ match }) => {
       <div className="title">
         <h2>Schedule your trip!</h2>
         <p>Select the Country and City/Destination you would like to visit</p>
-        <p className="alert">{error}</p>
+        <p className="alert" id="alert">{error}</p>
       </div>
       <form
         className="schedule-date d-flex flex-column"

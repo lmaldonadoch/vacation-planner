@@ -2,6 +2,7 @@ import React, { useEffect, useLayoutEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { userLoggedIn, userLogout } from '../actions/UserActions';
+import NavFooter from './NavFooter'
 
 const Nav = () => {
   const dispatch = useDispatch();
@@ -9,9 +10,8 @@ const Nav = () => {
   const location = useLocation();
 
   useLayoutEffect(() => {
-    const elem = location.pathname.split('/')[1] === ''
-      ? document.getElementById('home')
-      : document.getElementById(`${location.pathname.split('/')[1]}`);
+    const route = location.pathname.split('/')[1];
+    const elem = document.getElementById(route || 'home');
     const li = document.getElementById('nav-links').children;
     [...li].forEach(elem => {
       const targetChild = [...elem.children][0];
@@ -74,32 +74,7 @@ const Nav = () => {
           </li>
         </ul>
 
-        <div className="social_container d-flex justify-content-between">
-          <a
-            href="https://twitter.com/LuisAngelMCh"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <i className="fab fa-twitter" />
-          </a>
-          <a
-            href="https://github.com/lmaldonadoch"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <i className="fab fa-github" />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/lmaldonadoch/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <i className="fab fa-linkedin-in" />
-          </a>
-          <a href="mailto: lmaldonadoch@gmail.com">
-            <i className="fas fa-envelope" />
-          </a>
-        </div>
+        <NavFooter />
       </nav>
     );
   }
@@ -122,32 +97,7 @@ const Nav = () => {
           </li>
         </ul>
 
-        <div className="social_container d-flex justify-content-between">
-          <a
-            href="https://twitter.com/LuisAngelMCh"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <i className="fab fa-twitter" />
-          </a>
-          <a
-            href="https://github.com/lmaldonadoch"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <i className="fab fa-github" />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/lmaldonadoch/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <i className="fab fa-linkedin-in" />
-          </a>
-          <a href="mailto: lmaldonadoch@gmail.com">
-            <i className="fas fa-envelope" />
-          </a>
-        </div>
+        <NavFooter />
       </nav>
     );
   }
@@ -166,32 +116,7 @@ const Nav = () => {
         </Link>
       </ul>
 
-      <div className="social_container d-flex justify-content-between">
-        <a
-          href="https://twitter.com/LuisAngelMCh"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <i className="fab fa-twitter" />
-        </a>
-        <a
-          href="https://github.com/lmaldonadoch"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <i className="fab fa-github" />
-        </a>
-        <a
-          href="https://www.linkedin.com/in/lmaldonadoch/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <i className="fab fa-linkedin-in" />
-        </a>
-        <a href="mailto: lmaldonadoch@gmail.com">
-          <i className="fas fa-envelope" />
-        </a>
-      </div>
+      <NavFooter />
     </nav>
   );
 };

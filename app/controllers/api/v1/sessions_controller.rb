@@ -18,7 +18,12 @@ module API
             vacation_dates: user.vacation_dates
           }
         else
-          render json: { status: 401 }
+          render json: {
+            status: '401',
+            logged_in: false,
+            user: { admin: false },
+            vacation_dates: [{}]
+          }
         end
       end
 
