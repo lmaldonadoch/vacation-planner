@@ -42,6 +42,8 @@ Vacation Planner is an app that allows you to schedule your vacations. You can b
 - RSpec
 - Capybara
 - Enzyme
+- Factory Bot
+- Faker
 
 ## Getting Started
 
@@ -115,16 +117,30 @@ Node: >= 14.0
 
 ### Server side testing:
 
+#### Controllers
+
 ```
   rspec spec/controllers/destination_spec.rb
 
   rspec spec/controllers/images_spec.rb
 
+  rspec spec/controllers/registrations_spec.rb
+
   rspec spec/controllers/sessions_spec.rb
 
-  rspec spec/controllers/users_spec.rb
-
   rspec spec/controllers/vacation_dates_spec.rb
+```
+
+#### Models
+
+```
+  rspec spec/models/destination_spec.rb
+
+  rspec spec/models/images_spec.rb
+
+  rspec spec/models/users_spec.rb
+
+  rspec spec/models/vacation_dates_spec.rb
 ```
 
 ### Front-end React Components Testing
