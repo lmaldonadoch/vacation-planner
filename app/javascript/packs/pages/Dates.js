@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useLayoutEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { dateCreate, dateSetup, dateStateReset } from '../actions/DateActions';
@@ -82,6 +82,32 @@ const Dates = ({ match }) => {
     return setError(null);
   };
 
+  useLayoutEffect(() => {
+    const decrementButton = document.getElementById('decrement');
+    const incrementButton = document.getElementById('increment');
+    if (userState.vacationDates.length > 5) {
+      console.log(userState.vacationDates.length)
+      incrementButton.classList.remove('d-none');
+      decrementButton.classList.remove('d-none');
+    };
+
+    if (page === 0) {
+      decrementButton.disabled = true;
+      decrementButton.classList.add('disabled');
+      incrementButton.classList.remove('disabled');
+    } else if ((page + 1) * 5 >= userState.vacationDates.length) {
+      incrementButton.disabled = true;
+      incrementButton.classList.add('disabled');
+      decrementButton.classList.remove('disabled');
+    } else {
+      decrementButton.disabled = false;
+      incrementButton.disabled = false;
+
+      decrementButton.classList.remove('disabled');
+      incrementButton.classList.remove('disabled');
+    }
+  }, [userState.vacationDates, page]);
+
   useEffect(() => {
     if (datesState.status === 'created') {
       dispatch(userLoggedIn());
@@ -118,7 +144,7 @@ const Dates = ({ match }) => {
         <button
           onClick={decrementPage}
           id="decrement"
-          className="left"
+          className="left d-none"
           type="button"
         >
           <i className="fas fa-caret-left" />
@@ -152,7 +178,7 @@ const Dates = ({ match }) => {
         <button
           onClick={incrementPage}
           id="increment"
-          className="right"
+          className="right d-none"
           type="button"
         >
           <i className="fas fa-caret-right" />
@@ -161,7 +187,7 @@ const Dates = ({ match }) => {
       <div className="title">
         <h2>Schedule your trip!</h2>
         <p>Select the Country and City/Destination you would like to visit</p>
-        <p className="alert" id="alert">{error}</p>
+        <p className="alert d-none" id="alert">{error}</p>
       </div>
       <form
         className="schedule-date d-flex flex-column"

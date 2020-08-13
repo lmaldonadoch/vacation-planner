@@ -1,16 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useLayoutEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import { userRegistration } from '../actions/UserActions';
 
 const Register = () => {
   const dispatch = useDispatch();
   const userState = useSelector(state => state.user);
   const history = useHistory();
+  const location = useLocation();
 
   const [error, setError] = useState(null);
 
-  const alert = document.getElementById('alert');
+  var alert = document.getElementById('alert');
+
+  useLayoutEffect(() => {
+    alert = document.getElementById('alert');
+  }, [location.pathname, userState.status]);
 
   const signup = e => {
     e.preventDefault();
@@ -26,12 +31,14 @@ const Register = () => {
   };
 
   useEffect(() => {
-    if (userState.loggedIn && userState.status !== 'error') history.push('/');
-    else if (userState.status === 'error') {
-      setError('Ups! It seems like that email is already taken, please provide another one.');
-      alert.classList.remove('d-none');
+    if (!userState.isFetching) {
+      if (userState.loggedIn && userState.status !== 'error') history.push('/');
+      else if (userState.status === 'error') {
+        setError('Ups! It seems like that email is already taken, please provide another one.');
+        alert.classList.remove('d-none');
+      };
     }
-  }, [userState.loggedIn, userState.status]);
+  }, [userState.loggedIn, userState.status, userState.isFetching]);
 
   return (
     <div className="col-12 col-md-10 d-flex flex-column justify-content-center align-items-center w-100">

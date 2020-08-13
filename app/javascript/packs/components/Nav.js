@@ -9,9 +9,7 @@ const Nav = () => {
   const userState = useSelector(state => state.user);
   const location = useLocation();
 
-  useLayoutEffect(() => {
-    const route = location.pathname.split('/')[1];
-    const elem = document.getElementById(route || 'home');
+  const removeClass = () => {
     const li = document.getElementById('nav-links').children;
     [...li].forEach(elem => {
       const targetChild = [...elem.children][0];
@@ -21,6 +19,12 @@ const Nav = () => {
         elem.classList.remove('active');
       }
     });
+  };
+
+  useLayoutEffect(() => {
+    const route = location.pathname.split('/')[1];
+    const elem = document.getElementById(route || 'home');
+    removeClass();
     if (elem) {
       elem.classList.add('active');
     } else {
@@ -37,15 +41,7 @@ const Nav = () => {
   };
 
   const clickHandler = e => {
-    const li = document.getElementById('nav-links').children;
-    [...li].forEach(elem => {
-      const targetChild = [...elem.children][0];
-      if (targetChild) {
-        targetChild.classList.remove('active');
-      } else {
-        elem.classList.remove('active');
-      }
-    });
+    removeClass();
     e.target.classList.add('active');
   };
 

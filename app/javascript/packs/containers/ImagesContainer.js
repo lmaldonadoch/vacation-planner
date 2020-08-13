@@ -26,20 +26,22 @@ const imagesContainer = props => {
   };
 
   useLayoutEffect(() => {
+    const decrementButton = document.getElementById('decrement');
+    const incrementButton = document.getElementById('increment');
     if (page === 0) {
-      document.getElementById('decrement').disabled = true;
-      document.getElementById('decrement').classList.add('disabled');
-      document.getElementById('increment').classList.remove('disabled');
+      decrementButton.disabled = true;
+      decrementButton.classList.add('disabled');
+      incrementButton.classList.remove('disabled');
     } else if ((page + 1) * size >= images.length) {
-      document.getElementById('increment').disabled = true;
-      document.getElementById('increment').classList.add('disabled');
-      document.getElementById('decrement').classList.remove('disabled');
+      incrementButton.disabled = true;
+      incrementButton.classList.add('disabled');
+      decrementButton.classList.remove('disabled');
     } else {
-      document.getElementById('decrement').disabled = false;
-      document.getElementById('increment').disabled = false;
+      decrementButton.disabled = false;
+      incrementButton.disabled = false;
 
-      document.getElementById('decrement').classList.remove('disabled');
-      document.getElementById('increment').classList.remove('disabled');
+      decrementButton.classList.remove('disabled');
+      incrementButton.classList.remove('disabled');
     }
   }, [page]);
 

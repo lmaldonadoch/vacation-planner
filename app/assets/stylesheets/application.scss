@@ -26,6 +26,10 @@ body,
   overflow-x: hidden;
 }
 
+button {
+  cursor: pointer;
+}
+
 nav a {
   color: #525252;
   font-weight: 900;
@@ -258,7 +262,7 @@ form {
     max-height: 50vh;
 
     img {
-      max-height: 60vh;
+      max-height: 50vh;
     }
   }
 
@@ -324,6 +328,10 @@ form {
 
   .right {
     border-radius: 50% 0 0 50%;
+  }
+
+  .disabled {
+    opacity: 0.5;
   }
 
   form {

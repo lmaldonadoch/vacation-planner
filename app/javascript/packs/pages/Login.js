@@ -1,16 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useLayoutEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import { userLogin } from '../actions/UserActions';
 
 const Login = () => {
   const dispatch = useDispatch();
   const userState = useSelector(state => state.user);
   const history = useHistory();
+  const location = useLocation();
 
   const [error, setError] = useState(null);
 
-  const alert = document.getElementById('alert');
+  var alert = document.getElementById('alert');
+
+  useLayoutEffect(() => {
+    alert = document.getElementById('alert');
+  }, [location.pathname, userState.status]);
 
   const login = e => {
     e.preventDefault();
@@ -24,12 +29,14 @@ const Login = () => {
   };
 
   useEffect(() => {
-    if (userState.loggedIn) history.push('/');
-    else if (userState.status === '401') {
-      setError("The email and password provided don't match our records. Please verify them.");
-      alert.classList.remove('d-none');
+    if (!userState.isFetching) {
+      if (userState.loggedIn) history.push('/');
+      else if (userState.status === '401') {
+        setError("The email and password provided don't match our records. Please verify them.");
+        alert.classList.remove('d-none');
+      };
     }
-  }, [userState.status]);
+  }, [userState.status, userState.isFetching]);
 
   return (
     <div className="Login col-12 col-md-10  d-flex flex-column justify-content-center align-items-center w-100">
