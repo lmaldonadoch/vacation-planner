@@ -2,7 +2,7 @@ import React, { useEffect, useLayoutEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { userLoggedIn, userLogout } from '../actions/UserActions';
-import NavFooter from './NavFooter'
+import NavFooter from './NavFooter';
 
 const Nav = () => {
   const dispatch = useDispatch();

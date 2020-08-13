@@ -24,12 +24,11 @@ const Login = () => {
   };
 
   useEffect(() => {
-    console.log(userState)
     if (userState.loggedIn) history.push('/');
     else if (userState.status === '401') {
-      setError("The email and password provided don't match our records. Please verify them.")
+      setError("The email and password provided don't match our records. Please verify them.");
       alert.classList.remove('d-none');
-    };
+    }
   }, [userState.status]);
 
   return (
