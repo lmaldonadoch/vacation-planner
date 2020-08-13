@@ -86,10 +86,9 @@ const Dates = ({ match }) => {
     const decrementButton = document.getElementById('decrement');
     const incrementButton = document.getElementById('increment');
     if (userState.vacationDates.length > 5) {
-      console.log(userState.vacationDates.length)
       incrementButton.classList.remove('d-none');
       decrementButton.classList.remove('d-none');
-    };
+    }
 
     if (page === 0) {
       decrementButton.disabled = true;

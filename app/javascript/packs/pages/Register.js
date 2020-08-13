@@ -11,7 +11,7 @@ const Register = () => {
 
   const [error, setError] = useState(null);
 
-  var alert = document.getElementById('alert');
+  let alert = document.getElementById('alert');
 
   useLayoutEffect(() => {
     alert = document.getElementById('alert');
@@ -36,7 +36,7 @@ const Register = () => {
       else if (userState.status === 'error') {
         setError('Ups! It seems like that email is already taken, please provide another one.');
         alert.classList.remove('d-none');
-      };
+      }
     }
   }, [userState.loggedIn, userState.status, userState.isFetching]);
 

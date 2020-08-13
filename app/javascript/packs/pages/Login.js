@@ -11,7 +11,7 @@ const Login = () => {
 
   const [error, setError] = useState(null);
 
-  var alert = document.getElementById('alert');
+  let alert = document.getElementById('alert');
 
   useLayoutEffect(() => {
     alert = document.getElementById('alert');
@@ -34,7 +34,7 @@ const Login = () => {
       else if (userState.status === '401') {
         setError("The email and password provided don't match our records. Please verify them.");
         alert.classList.remove('d-none');
-      };
+      }
     }
   }, [userState.status, userState.isFetching]);
 
