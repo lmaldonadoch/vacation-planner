@@ -1,5 +1,4 @@
 require 'rails_helper'
-# rubocop:disable Layout/LineLength
 
 RSpec.describe Destination, type: :model do
   describe '#Destinations' do
@@ -24,5 +23,4 @@ RSpec.describe Destination, type: :model do
       expect(destination.errors[:country_description]).to_not include("can't be blank")
     end
   end
-  # rubocop:enable Layout/LineLength
 end

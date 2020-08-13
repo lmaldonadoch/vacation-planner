@@ -2,9 +2,9 @@
 require 'rails_helper'
 
 RSpec.describe 'Destinations', type: :request do
-  let(:d1) { Destination.create(place: 'Mexico', country_description: "Mexico is well known for its turquoise beaches, colonial cities, and warm people. Don't miss the chance to visit this beautiful country.") }
-  let(:d2) { Destination.create(place: 'Mexico2', country_description: "Mexico is well known for its turquoise beaches, colonial cities, and warm people. Don't miss the chance to visit this beautiful country.") }
-  let(:u) { User.create(name: 'Admin', email: 'admin@vacationplanner.com', password: '123456', password_confirmation: '123456', admin: true) }
+  let(:d1) { create(:destination, place: 'Mexico') }
+  let(:d2) { create(:destination, place: 'Mexico2') }
+  let(:u) { create(:admin) }
   describe '#Destinations' do
     it 'gets destinations' do
       get '/api/v1/destinations'

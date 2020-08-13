@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Sessions', type: :request do
   describe '#Sessions' do
-    let(:user) { User.create(name: 'test', email: 'test@test.com', password: '123', password_confirmation: '123') }
+    let(:user) { create(:user) }
     it 'gets the user' do
       get '/api/v1/logged_in'
       expect(response).to be_successful

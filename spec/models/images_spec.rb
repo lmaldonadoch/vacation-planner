@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe Image, type: :model do
   describe '#Images' do
-    let(:destination) {create(:destination)}
     let(:image) { build(:image) }
     it 'doesnt take an image without URL' do
       image.image_url = nil
