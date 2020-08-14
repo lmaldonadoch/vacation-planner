@@ -120,7 +120,7 @@ Node: >= 14.0
 #### Controllers
 
 ```
-  rspec spec/controllers/destination_spec.rb
+  rspec spec/controllers/destinations_spec.rb
 
   rspec spec/controllers/images_spec.rb
 
@@ -134,7 +134,7 @@ Node: >= 14.0
 #### Models
 
 ```
-  rspec spec/models/destination_spec.rb
+  rspec spec/models/destinations_spec.rb
 
   rspec spec/models/images_spec.rb
 

@@ -11,7 +11,7 @@ describe('AddForm', () => {
   beforeEach(() => {
     wrapper = mount(
       <Wrapper>
-        <AddForm form={null} />
+        <AddForm formType={null} />
       </Wrapper>,
     );
   });
@@ -34,7 +34,7 @@ describe('AddForm', () => {
   beforeEach(() => {
     wrapper = mount(
       <Wrapper>
-        <AddForm form="country" />
+        <AddForm formType="country" />
       </Wrapper>,
     );
   });
