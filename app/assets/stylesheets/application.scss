@@ -1,0 +1,381 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
+@import 'bootstrap/scss/bootstrap';
+
+body,
+a,
+p,
+li,
+div,
+span {
+  font-family: 'Roboto', sans-serif !important;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+body,
+.wrapper,
+.App {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+button {
+  cursor: pointer;
+}
+
+nav a {
+  color: #525252;
+  font-weight: 900;
+  font-size: 20px;
+  text-decoration: none !important;
+}
+
+.Image a {
+  width: 100%;
+  color: black;
+  text-align: center;
+}
+
+nav a:hover,
+nav button {
+  color: #525252;
+  font-weight: 900;
+  font-size: 20px;
+  text-decoration: none !important;
+}
+
+nav {
+  color: #525252;
+  font-weight: 900;
+  font-size: 20px;
+  border-right: #f1f1f1 solid 2px;
+  padding-right: 0 !important;
+
+  .logo {
+    background: url(logo.png) no-repeat center center;
+    background-size: contain;
+    width: 100%;
+    height: 150px;
+    margin-top: 100px;
+  }
+
+  li {
+    padding: 20px 0 20px 20px;
+    cursor: pointer;
+  }
+
+  button {
+    background: none;
+    border: none;
+  }
+
+  .active {
+    background: rgb(151, 191, 15);
+    color: white;
+  }
+
+  ul {
+    margin-top: auto;
+  }
+
+  .social_container {
+    width: 90%;
+    max-width: 500px;
+    padding: 0 15px;
+    margin-top: auto;
+
+    a {
+      font-size: 1.8rem;
+    }
+  }
+
+  .social_container i {
+    transition-property: all;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+  }
+
+  .social_container .fa-facebook-square:hover {
+    color: #3b5998;
+  }
+
+  .social_container .fa-twitter:hover {
+    color: #00acee;
+  }
+
+  .social_container .fa-linkedin-in:hover {
+    color: #0e76a8;
+  }
+
+  .social_container .fa-github:hover {
+    color: #30e6cd;
+  }
+
+  .social_container .fa-envelope:hover {
+    color: #d44638;
+  }
+}
+
+form {
+  input {
+    width: 100%;
+    max-width: 500px;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 0 10px 10px;
+    border-bottom: #d8d8d8 solid 1px;
+    margin-bottom: 30px;
+  }
+
+  button {
+    border: none;
+    border-radius: 4px;
+    background: rgb(151, 191, 15);
+    color: white;
+    width: 100%;
+    max-width: 200px;
+    padding: 15px;
+    font-size: 20px;
+    font-weight: 700;
+  }
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 50px;
+
+  h2 {
+    font-weight: 900;
+    color: black;
+  }
+
+  p {
+    font-size: 14px;
+    color: black;
+    opacity: 0.6;
+  }
+}
+
+.Home {
+  a:hover {
+    text-decoration: none;
+    color: black;
+  }
+}
+
+.ImagesContainer,
+.Details,
+.AddDestination {
+  button {
+    height: 30px;
+    width: 100px;
+    color: white;
+    background: rgb(151, 191, 15);
+    border: none;
+  }
+
+  .left {
+    border-radius: 0 50% 50% 0;
+  }
+
+  .right {
+    border-radius: 50% 0 0 50%;
+  }
+
+  .disabled {
+    opacity: 0.5;
+  }
+}
+
+.Dates h5 {
+  font-weight: 700;
+}
+
+.Image {
+  .image-div {
+    min-width: 100%;
+    min-height: 200px;
+    height: 40vh;
+    background-size: contain;
+  }
+
+  .destination-info {
+    margin-top: 30px;
+
+    .destination-name-wrapper {
+      padding-bottom: 15px;
+      border-bottom: #d8d8d8 solid 1px;
+      width: 50%;
+      margin: 0 auto 20px;
+    }
+
+    h5 {
+      font-weight: 700;
+    }
+
+    p {
+      color: black;
+      opacity: 0.6;
+      font-size: 14px;
+    }
+  }
+}
+
+.AddDestination button {
+  padding: 20px;
+  width: fit-content;
+  height: fit-content;
+  border-radius: 7px;
+  font-weight: 700;
+}
+
+.Dates form button {
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+.Details {
+  position: relative;
+
+  .back-link {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+
+    button {
+      width: 70px;
+      height: 50px;
+    }
+  }
+
+  .carousel {
+    min-width: 60%;
+    max-width: 60%;
+    margin: 0 20px;
+    max-height: 50vh;
+
+    img {
+      max-height: 50vh;
+    }
+  }
+
+  .right-banner {
+    padding-right: 20px;
+    max-width: 400px;
+
+    h2 {
+      font-weight: 700;
+    }
+
+    p {
+      color: black;
+      opacity: 0.6;
+      font-size: 14px;
+    }
+
+    .city-info {
+      margin-bottom: 100px;
+    }
+
+    .dates-button {
+      align-self: flex-end;
+    }
+
+    button {
+      width: fit-content;
+      border-radius: 25px;
+      font-weight: 700;
+      padding: 10px 20px;
+      height: auto;
+    }
+  }
+}
+
+.Dates {
+  padding: 30px;
+
+  .schedule-trips-container {
+    margin: 0 30px 30px;
+  }
+
+  .scheduled-trip {
+    border: #f1f1f1 solid 1px;
+    box-shadow: -2px -2px 8px rgba(7, 8, 9, 0.3);
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .left,
+  .right {
+    height: 30px;
+    width: 50px;
+    color: white;
+    background: rgb(151, 191, 15);
+    border: none;
+  }
+
+  .left {
+    border-radius: 0 50% 50% 0;
+  }
+
+  .right {
+    border-radius: 50% 0 0 50%;
+  }
+
+  .disabled {
+    opacity: 0.5;
+  }
+
+  form {
+    margin-top: 20px;
+
+    label {
+      opacity: 0.5;
+    }
+
+    .selector-container {
+      margin-bottom: 30px;
+    }
+
+    select {
+      border: none;
+    }
+  }
+}
+
+.AddDestination {
+  padding: 30px;
+
+  form {
+    height: fit-content;
+
+    input {
+      width: 150%;
+    }
+
+    textarea {
+      border: #f1f1f1 1px solid;
+      border-radius: 7px;
+      width: 150%;
+      margin-bottom: 30px;
+      height: 150px;
+    }
+  }
+
+  .button-container {
+    margin-bottom: 30px;
+  }
+}
+
+.alert {
+  background: rgb(151, 191, 15);
+  height: fit-content;
+}
